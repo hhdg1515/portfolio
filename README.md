@@ -1,5 +1,7 @@
 # Clark Huang — Portfolio
 
+**[clarkhuang.vercel.app](https://clarkhuang.vercel.app)**
+
 Freelance product design and full-stack development. This repository is the source of the portfolio site itself.
 
 The site is deliberately built the way it argues work should be built: a written design specification first, then a direct implementation of it. There is no build step — the HTML and CSS in this repository are the artifact that ships.
@@ -42,8 +44,8 @@ Both are rendered headlessly at 1200×630 and written to `assets/images/og/`. Re
 **When the domain changes**, the absolute URLs in all eight pages have to change with it:
 
 ```bash
-grep -rl "portfolio-hhdg1515.vercel.app" index.html projects/ \
-  | xargs sed -i "s|portfolio-hhdg1515.vercel.app|YOUR-DOMAIN|g"
+grep -rl "clarkhuang.vercel.app" index.html projects/ \
+  | xargs sed -i "s|clarkhuang.vercel.app|YOUR-DOMAIN|g"
 npm run check
 ```
 
