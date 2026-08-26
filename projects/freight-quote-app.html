@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freight Quote App &mdash; Clark Huang</title>
+<meta name="description" content="An evidence-led UX case study adapting a desktop freight Draft Order experience to mobile cards, details and deletion states.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<header class="screen screen--page" id="top">
+  <div class="bloom-top"></div>
+  <div class="vignette"></div>
+  <nav class="nav nav--split">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--over-photo">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+  <div class="pagehead">
+    <div class="pagehead__eyebrow eyebrow">UX/UI Design &middot; Via Design Agency &middot; DrayEasy</div>
+    <h1 class="pagehead__title">Freight Quote App</h1>
+    <p class="pagehead__lede">Translating a desktop Draft Order view into a mobile list that stayed useful before the tap.</p>
+  </div>
+</header>
+
+<section class="band band--tight case-summary-band">
+  <div class="shell inset">
+    <dl class="metabar">
+      <div><dt>Role</dt><dd>Design intern, via design agency</dd></div>
+      <div><dt>Duration</dt><dd>September &ndash; November 2023</dd></div>
+      <div><dt>Team</dt><dd>Agency design lead, a group of design interns + two DrayEasy engineers</dd></div>
+      <div><dt>Status</dt><dd>Concept handed off; not built</dd></div>
+    </dl>
+    <nav class="case-nav" aria-label="Case study sections">
+      <a href="#vision">Vision</a>
+      <a href="#kickoff">Kickoff</a>
+      <a href="#research">Research</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#takeaways">Takeaways</a>
+    </nav>
+  </div>
+</section>
+
+<main>
+  <section class="band" id="vision">
+    <div class="shell inset">
+      <div class="case-lead">
+        <h2 class="case-lead__statement">Let someone compare time-sensitive freight quotes without opening every record.</h2>
+        <div class="case-lead__body">
+          <p class="prose">DrayEasy already had a desktop Web MVP. The mobile product did not exist, so the design team divided the experience by page. My assigned slice was Draft Orders: the list and card hierarchy, a detail view, and swipe-left deletion with confirmation.</p>
+          <p class="prose">The assignment was a focused mobile translation, not the full freight journey. Quote creation, shipping and customs variables, and order tracking belonged elsewhere.</p>
+        </div>
+      </div>
+      <dl class="case-facts">
+        <div class="case-fact"><dt>Users</dt><dd>Mobile freight roles working away from a desk, based on the client research supplied with the brief.</dd></div>
+        <div class="case-fact"><dt>Project vision</dt><dd>A compact Draft Order view that surfaces the information needed to judge a quote before opening its details.</dd></div>
+        <div class="case-fact"><dt>My scope</dt><dd>Draft Order list and card hierarchy, quote details, expiry presentation, swipe-left delete and confirmation.</dd></div>
+        <div class="case-fact"><dt>Outside scope</dt><dd>Quote inputs, rate calculation, transport and customs variables, mobile homepage and order-tracking states.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" id="kickoff">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Kickoff</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">The source was a working desktop pattern,<br>not a blank canvas.</h2>
+      <div class="case-split">
+        <article class="case-split__item">
+          <h3>Provided by the client</h3>
+          <ul>
+            <li>An existing Web MVP as reference</li>
+            <li>Research material for the broader freight product</li>
+            <li>Weekly access to a back-end and a full-stack engineer</li>
+            <li>A desktop Draft Order concept assumed to belong on mobile</li>
+          </ul>
+        </article>
+        <article class="case-split__item">
+          <h3>Assigned to my group</h3>
+          <ul>
+            <li>Rebuild personas, journey maps and user flows for mobile</li>
+            <li>Decide what survives on a narrow Draft Order card</li>
+            <li>Design the detail and destructive-action states</li>
+            <li>Raise mobile issues that also exposed desktop ambiguity</li>
+          </ul>
+        </article>
+      </div>
+
+      <figure class="shot" style="margin-top:var(--sp-lg)">
+        <img src="../assets/images/freight/web-mvp-reference.jpg" alt="Existing DrayEasy Web MVP with Draft Orders cards and a My Orders table">
+        <figcaption>Starting reference — an earlier build of the client's own Web MVP, not my design</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="research">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Research &amp; validation</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">Translate the job,<br>not the desktop dimensions.</h2>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Research method</span>
+        <span class="evidence-status__value">The team worked from client-provided research, then rebuilt personas, journey maps and user flows for mobile rather than assuming the desktop journey transferred intact.</span>
+      </div>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Design review</span>
+        <span class="evidence-status__value">Weekly reviews with the client engineering team tested feasibility and interpretation. One concrete correction was redrawing the small container glyph after both engineers read it as a warehouse carton.</span>
+      </div>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Competitive analysis</span>
+        <span class="evidence-status__value">DrayEasy had no mobile product yet, so the group studied freight apps that did. I took TQL; teammates took Uber Freight and Convoy. The question was not how to position against carriers of that size, but how a mature freight app fits a quote, a load and its status into one hand.</span>
+      </div>
+      <div class="evidence-status evidence-status--gap">
+        <span class="evidence-status__label">Usability study</span>
+        <span class="evidence-status__value">No participant protocol, findings deck or measured usability result is available. Engineering critique is reported as design review, not relabeled as user testing.</span>
+      </div>
+
+      <div class="case-sequence">
+        <article class="case-sequence__step">
+          <div class="case-sequence__copy">
+            <h3>The benchmark did not price instantly either.</h3>
+            <span class="case-response">Finding</span>
+            <p>TQL&rsquo;s mobile dashboard took shipment requirements and followed up by phone or email with times, addresses, driver and price. Any figure shown online was negotiable rather than final &mdash; the gap DrayEasy&rsquo;s standardised instant rates were built to close.</p>
+          </div>
+          <figure class="case-sequence__media">
+            <img src="../assets/images/freight/competitive-tql-dashboard.jpg" alt="Competitive analysis slide of the TQL Carrier Dashboard mobile load search, with a pick date of 10/2/2023 and four posted loads" loading="lazy">
+            <figcaption>My competitive analysis, October 2023 — TQL Carrier Dashboard, mobile key features.</figcaption>
+          </figure>
+        </article>
+
+        <article class="case-sequence__step case-sequence__step--reverse">
+          <div class="case-sequence__copy">
+            <h3>A mature mobile app still ran on phone calls.</h3>
+            <span class="case-response">Finding</span>
+            <p>Quoting, signing, booking, tracking and closing out a load each dropped back to a call. Reading those chains was how the group decided what a phone screen has to hold on its own, with no DrayEasy mobile product to compare against.</p>
+          </div>
+          <figure class="case-sequence__media">
+            <img src="../assets/images/freight/competitive-tql-carrier-flow.jpg" alt="Competitive analysis slide of the TQL carrier and driver-assign flow, from request for quotation through quote and load posting details" loading="lazy">
+            <figcaption>My competitive analysis, 2023 — TQL carrier and driver-assign flow.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="decisions">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Challenges &amp; design response</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">The card carried the decision.<br>The detail page carried the rest.</h2>
+
+      <figure class="shot" style="margin-bottom:var(--sp-xl)">
+        <img src="../assets/images/freight/draft-order-list-iteration.jpg" alt="Three iterations of the Draft Order card: a dense two-column version with sort chips, a filter-chip version with the route moved right, and the final version leading with price and deadline" loading="lazy">
+        <figcaption>Three passes at the Draft Order card — each one removed something. The third is the one read closely below.</figcaption>
+      </figure>
+
+      <div class="case-sequence">
+        <article class="case-sequence__step">
+          <div class="case-sequence__copy">
+            <h3>One route could have several different quotes.</h3>
+            <span class="case-response">Design response</span>
+            <p>Price became the largest element because route alone could not distinguish multiple quotes for the same origin and destination. Created time, route and container quantity stayed on the card; the longer charge breakdown moved to details.</p>
+          </div>
+          <figure class="case-sequence__media case-sequence__media--phone">
+            <img src="../assets/images/freight/challenge-quotes-per-lane.jpg" alt="Draft Orders list with four saved quotes on the Los Angeles to Minneapolis lane at four different prices and created dates" loading="lazy">
+            <figcaption>Four quotes, one lane. Price and created date are what separate them.</figcaption>
+          </figure>
+        </article>
+
+        <article class="case-sequence__step case-sequence__step--reverse">
+          <div class="case-sequence__copy">
+            <h3>A freight quote loses value as conditions change.</h3>
+            <span class="case-response">Design response</span>
+            <p>The design used active, approaching-expiry and expired states. Expiry did not rely on color alone: the expired card was muted, the invalid price was struck through and the actionable deadline was replaced by the word “Expired.”</p>
+          </div>
+          <figure class="case-sequence__media case-sequence__media--phone">
+            <img src="../assets/images/freight/challenge-expiry-states.jpg" alt="An active quote card showing a blue deadline above an expired card with a struck-through price and the word Expired" loading="lazy">
+            <figcaption>A live deadline tells you how long you have. A dead one is trivia, so it is replaced rather than dimmed.</figcaption>
+          </figure>
+        </article>
+
+        <article class="case-sequence__step">
+          <div class="case-sequence__copy">
+            <h3>A swipe could expose an irreversible action too easily.</h3>
+            <span class="case-response">Design response</span>
+            <p>Swipe left revealed delete without completing it. A second confirmation step protected the record from accidental removal and made the consequence explicit.</p>
+          </div>
+          <figure class="case-sequence__media">
+            <img src="../assets/images/freight/challenge-swipe-confirm.jpg" alt="A Draft Order card swiped left to reveal a red Delete action, and the same list with a confirmation dialog asking to delete the draft order" loading="lazy">
+            <figcaption>The swipe reveals the action; the second step is what performs it.</figcaption>
+          </figure>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="evidence">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Design evidence</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">Reference, response<br>and interaction states.</h2>
+
+      <div class="case-gallery" data-case-gallery tabindex="0" aria-label="Freight Quote App design carousel">
+        <div class="case-gallery__viewport" aria-live="polite">
+          <figure class="case-gallery__slide" data-case-slide>
+            <div class="case-gallery__media"><img src="../assets/images/freight/web-mvp-reference.jpg" alt="Existing desktop Web MVP used as the mobile design reference"></div>
+            <figcaption class="case-gallery__caption">Provided reference — the desktop MVP established the business objects, but not the mobile hierarchy.</figcaption>
+          </figure>
+          <figure class="case-gallery__slide" data-case-slide hidden>
+            <div class="case-gallery__media"><img src="../assets/images/freight/mobile-draft-orders-sequence.jpg" alt="Three mobile Draft Orders screens: four quotes on one lane in active, approaching-expiry and expired states; the same list swiped left to reveal Delete; and the confirmation dialog that completes it"></div>
+            <figcaption class="case-gallery__caption">My work — one lane, four quotes separated by price and date; expiry runs from red to struck-through grey; a swipe reveals delete, a second step confirms it.</figcaption>
+          </figure>
+        </div>
+        <div class="case-gallery__toolbar">
+          <span class="case-gallery__count"><b data-case-current>01</b> / 02</span>
+          <div class="case-gallery__controls">
+            <button class="case-gallery__button" type="button" data-case-previous aria-label="Previous design artifact">&larr;</button>
+            <button class="case-gallery__button" type="button" data-case-next aria-label="Next design artifact">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="takeaways">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Takeaways</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">A well-resolved component<br>cannot validate the concept above it.</h2>
+      <ul class="takeaway">
+        <li>The quote card still demonstrates defensible hierarchy, time-sensitive states and a guarded destructive action.</li>
+        <li>The concept was handed off but not built, so the page makes no adoption or usability-outcome claim.</li>
+        <li>Feedback arrives on freight time. A cross-border move runs for weeks, and shippers, carriers, drivers, support and warehouse staff are rarely all reachable inside one engagement &mdash; the trade caps how fast a design can iterate, not the team.</li>
+        <li>Today I would first test whether mobile users need to retain Draft Orders at all, then refine how that concept should travel from desktop.</li>
+      </ul>
+      <div class="case-close">
+        <div>
+          <h2>Need a complex desktop workflow made useful on mobile?</h2>
+          <p>I can help identify what survives the move, what needs a new hierarchy and what should be questioned before it is built.</p>
+        </div>
+        <a class="cta cta--a" href="mailto:clarkswift1@gmail.com">Discuss a project <span class="cta__arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="band band--tight">
+  <div class="shell inset">
+    <div class="pagenav">
+      <a class="cta cta--b" href="asset-library-ux.html"><span class="cta__arrow">&larr;</span> Asset Library UX</a>
+      <a class="cta cta--b" href="../index.html#work">All work <span class="cta__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="mailto:clarkswift1@gmail.com">Email</a><a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/case-study.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+node_modules/
+.DS_Store
+Thumbs.db
+
+# 本地设计工具的工作目录（评审记录、预览服务器状态、缩略图）
+# 含本地 dev server token，不入库
+.impeccable/
+
+# 面试准备稿 —— 私人材料，仅在本地保留
+# 页面正文是扫读版；这些是完整叙述与口述练习稿
+content/
+
+# 封面概念稿 —— 只保留页面真正引用的那几张
+# 其余 71 个落选变体（约 141MB）留在本地，不入库
+assets/images/covers/concepts/**/*.png
+!assets/images/covers/concepts/dental-clinic-equipment-v10-hover.png
+!assets/images/covers/concepts/dental-clinic-equipment-v10-portrait.png
+!assets/images/covers/concepts/freight-drayeasy-port-to-road-v4-no-subtitle.png
+!assets/images/covers/concepts/freight-drayeasy-port-to-road-v6-hover.png
+!assets/images/covers/concepts/vantage-risk-gates-v3-no-subtitle.png
+!assets/images/covers/concepts/vantage-risk-gates-v5-hover.png
+!assets/images/covers/concepts/openseason-decision/V1/artwork.png
+!assets/images/covers/concepts/openseason-decision/V2/artwork.png
+!assets/images/covers/concepts/openseason-decision/V3/artwork-v9.png
+!assets/images/covers/concepts/openseason-decision/V4/artwork.png
+!assets/images/covers/concepts/openseason-decision/V5/artwork.png

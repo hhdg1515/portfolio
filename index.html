@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clark Huang — Freelance Design-to-Code</title>
+<meta name="description" content="Freelance product designer and full-stack developer. Clark Huang takes digital products from research and interface design through production code and delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HERO
+     首屏只承担身份与价值主张；作品浏览从下一屏开始。
+     ============================================================ -->
+<header class="screen" id="top">
+  <div class="bloom-top"></div>
+  <div class="bloom-bottom"></div>
+  <div class="vignette"></div>
+
+  <nav class="nav nav--end">
+    <div class="nav-links nav-links--over-photo">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1 class="hero__title">Clark Huang</h1>
+    <p class="hero__lede">Freelance product design and full-stack development, from research to shipped product.</p>
+    <div class="hero__actions">
+      <a class="cta cta--a" href="mailto:clarkswift1@gmail.com?subject=Freelance%20project%20inquiry">Start a Project <span class="cta__arrow">&rarr;</span></a>
+      <a class="hero__work-link" href="#work">View selected work <span aria-hidden="true">&darr;</span></a>
+    </div>
+  </div>
+
+  <div class="scrollbar">
+    <span class="scrollbar__rule"></span>
+    <span class="scrollbar__label">Scroll</span>
+    <span class="scrollbar__rule"></span>
+  </div>
+</header>
+
+<!-- ============================================================
+     WORK — 三个主项目故事 + 三个 More selected work
+     不分工程 / 设计：都是做过的东西，区别交给眉标，不另起分区。
+     主项目用三到四图轮播；其余项目悬停后显示 行业 · 项目名 · 技术栈。
+     ============================================================ -->
+<section class="work-showcase" id="work" aria-label="Selected work">
+  <div class="shell inset work-showcase__inner">
+
+    <div class="band__head">
+      <span class="eyebrow">Selected Work</span>
+      <span class="rule"></span>
+    </div>
+
+    <h2 class="h2 work-showcase__title">Selected work, shown at the scale it deserves.</h2>
+
+    <article class="project-story project-story--wsc" data-project-carousel aria-labelledby="wsc-story-title">
+      <div class="project-story__media">
+        <div class="project-story__stage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="WSC Auto project artwork">
+          <figure class="project-slide is-active" data-project-slide
+                  data-title="A workshop, not a showroom"
+                  data-copy="Independent European vehicle service, built for complex work.">
+            <a class="project-slide__link" href="projects/wsc-auto.html" aria-label="View the WSC Auto case study">
+              <img src="assets/images/covers/concepts/wsc-auto-primary-v1-4x5.webp" decoding="async" fetchpriority="high"
+                   alt="WSC Auto cover with a Mercedes in a specialist workshop">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="Precision diagnosis"
+                  data-copy="Mercedes and Sprinter expertise, supported by specialist equipment.">
+            <a class="project-slide__link" href="projects/wsc-auto.html" aria-label="View the WSC Auto case study">
+              <img src="assets/images/covers/concepts/wsc-auto-precision-v4-4x5.webp" loading="lazy" decoding="async"
+                   alt="Mercedes service bay with advanced diagnostic equipment and precision lift">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="Technical knowledge, structured"
+                  data-copy="49 hand-drawn schematics turn diagnosis into a working archive.">
+            <a class="project-slide__link" href="projects/wsc-auto.html" aria-label="View the WSC Auto case study">
+              <img src="assets/images/covers/concepts/wsc-auto-schematics-v2-4x5.webp" loading="lazy" decoding="async"
+                   alt="Technical archive of European vehicle schematics organized by system and brand">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="Live in production"
+                  data-copy="Bilingual, responsive and connected to booking.">
+            <a class="project-slide__link" href="projects/wsc-auto.html" aria-label="View the WSC Auto case study">
+              <img src="assets/images/covers/concepts/wsc-auto-live-production-v4-8cd2ff-4x5.webp" loading="lazy" decoding="async"
+                   alt="WSC responsive website shown on desktop and phone with production features highlighted in pale blue">
+            </a>
+          </figure>
+
+          <button class="project-carousel__edge project-carousel__edge--prev" type="button" data-story-dir="-1" aria-label="Previous WSC Auto artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <button class="project-carousel__edge project-carousel__edge--next" type="button" data-story-dir="1" aria-label="Next WSC Auto artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="project-carousel__controls">
+          <div class="project-carousel__dots" aria-label="Choose WSC Auto artwork">
+            <button type="button" data-story-dot="0" aria-label="Show artwork 1" aria-current="true"></button>
+            <button type="button" data-story-dot="1" aria-label="Show artwork 2"></button>
+            <button type="button" data-story-dot="2" aria-label="Show artwork 3"></button>
+            <button type="button" data-story-dot="3" aria-label="Show artwork 4"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-story__copy">
+        <h3 class="project-story__name" id="wsc-story-title">WSC Auto</h3>
+        <p class="project-story__meta">React &middot; Three.js &middot; i18n &middot; Live</p>
+
+        <div class="project-story__caption" aria-live="polite" aria-atomic="true">
+          <span class="project-story__count"><b data-story-now>01</b> / 04</span>
+          <h4 data-story-title>A workshop, not a showroom</h4>
+          <p data-story-copy>Independent European vehicle service, built for complex work.</p>
+          <p class="project-story__mobile-data" data-story-details hidden></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-story project-story--openseason" data-project-carousel aria-labelledby="openseason-story-title">
+      <div class="project-story__media">
+        <div class="project-story__stage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="OpenSeason project artwork">
+          <figure class="project-slide is-active" data-project-slide
+                  data-title="One route verdict"
+                  data-copy="14 live sources. One route verdict.">
+            <a class="project-slide__link" href="projects/openseason.html" aria-label="View the OpenSeason case study">
+              <img src="assets/images/covers/concepts/openseason-primary-v1.webp" loading="lazy" decoding="async"
+                   alt="OpenSeason cover showing a California mountain route and live-condition signals">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="California is not one condition"
+                  data-copy="Road, weather, fire and lodging — read by region.">
+            <a class="project-slide__link" href="projects/openseason.html" aria-label="View the OpenSeason case study">
+              <img src="assets/images/covers/concepts/openseason-find-your-wild-v6-white-route-4x5.webp" loading="lazy" decoding="async"
+                   alt="Five California regions connected by their most important travel condition">
+            </a>
+          </figure>
+
+          <figure class="project-slide project-slide--plan" data-project-slide hidden
+                  data-title="Plan around what can stop the trip"
+                  data-copy="Camps, access and the final go / no-go check."
+                  data-details="Upper Pines · 82% booked · next 14 days  /  Valley Visitor Center · open 9–5  /  Arch Rock Entrance · open  /  Yosemite Valley · 4,000 ft  /  Roads, wildfire, park access and mountain passes clear; weather advisory pending.">
+            <a class="project-slide__link" href="projects/openseason.html" aria-label="View the OpenSeason case study">
+              <img src="assets/images/covers/concepts/openseason-live-adventure-home-v1-4x5.webp" loading="lazy" decoding="async"
+                   alt="Large oblique Yosemite Valley map above a California road">
+            </a>
+
+            <div class="os-map-signals" aria-label="Yosemite planning signals">
+              <div class="os-signal os-signal--camp">
+                <span class="os-signal__mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3.5 19 12 5l8.5 14M7.5 19 12 11l4.5 8M12 11v8"/></svg>
+                </span>
+                <span><b>Upper Pines</b><small>82% booked · next 14 days</small></span>
+              </div>
+              <div class="os-signal os-signal--visitor">
+                <span class="os-signal__mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>
+                </span>
+                <span><b>Valley Visitor Center</b><small>Ranger desk · trail conditions</small></span>
+              </div>
+              <div class="os-signal os-signal--gate">
+                <span class="os-signal__mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 20V8m14 12V8M5 10c4-5 10-5 14 0M8 20v-5h8v5"/></svg>
+                </span>
+                <span><b>Arch Rock Entrance</b><small>CA-140 · open</small></span>
+              </div>
+              <div class="os-signal os-signal--elevation">
+                <span class="os-signal__mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 16c3-6 5-6 8 0s5 6 8 0M4 11c3-6 5-6 8 0s5 6 8 0"/></svg>
+                </span>
+                <span><b>Yosemite Valley</b><small>4,000 ft</small></span>
+              </div>
+            </div>
+
+            <div class="os-recheck" aria-label="Departure recheck: four of five reviewed">
+              <b>Prep check · 4 / 5</b>
+              <span>Roads open</span>
+              <span>No fire impact</span>
+              <span>Park access open</span>
+              <span>Mountain passes open</span>
+              <span class="is-pending">Weather advisories</span>
+            </div>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="The outcome is the trip"
+                  data-copy="Coast, mountains, redwoods, desert, sunset — and the IN-N-OUT burger.">
+            <a class="project-slide__link" href="projects/openseason.html" aria-label="View the OpenSeason case study">
+              <img src="assets/images/covers/concepts/openseason-worth-the-drive-v2-in-n-out-4x5.webp" loading="lazy" decoding="async"
+                   alt="California travel collage with coast, mountains, redwoods, desert and an In-N-Out meal">
+            </a>
+          </figure>
+
+          <button class="project-carousel__edge project-carousel__edge--prev" type="button" data-story-dir="-1" aria-label="Previous OpenSeason artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <button class="project-carousel__edge project-carousel__edge--next" type="button" data-story-dir="1" aria-label="Next OpenSeason artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="project-carousel__controls">
+          <div class="project-carousel__dots" aria-label="Choose OpenSeason artwork">
+            <button type="button" data-story-dot="0" aria-label="Show artwork 1" aria-current="true"></button>
+            <button type="button" data-story-dot="1" aria-label="Show artwork 2"></button>
+            <button type="button" data-story-dot="2" aria-label="Show artwork 3"></button>
+            <button type="button" data-story-dot="3" aria-label="Show artwork 4"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-story__copy">
+        <h3 class="project-story__name" id="openseason-story-title">OpenSeason</h3>
+        <p class="project-story__meta">Next.js · Supabase · MapLibre · Live</p>
+
+        <div class="project-story__caption" aria-live="polite" aria-atomic="true">
+          <span class="project-story__count"><b data-story-now>01</b> / 04</span>
+          <h4 data-story-title>One route verdict</h4>
+          <p data-story-copy>14 live sources. One route verdict.</p>
+          <p class="project-story__mobile-data" data-story-details hidden></p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-story project-story--asset-library" data-project-carousel aria-labelledby="asset-library-story-title">
+      <div class="project-story__media">
+        <div class="project-story__stage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Asset Library UX project artwork">
+          <figure class="project-slide is-active" data-project-slide
+                  data-title="One recording, many moments"
+                  data-copy="Long-form content becomes a set of short-form candidates.">
+            <a class="project-slide__link" href="projects/asset-library-ux.html" aria-label="View the Asset Library UX case study">
+              <img src="assets/images/covers/concepts/ai-asset-library-one-recording-v2-4x5.webp" loading="lazy" decoding="async"
+                   alt="One podcast recording connected to three AI-selected short video moments">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="Past projects stay retrievable"
+                  data-copy="Each saved project keeps its source video and generated clips together.">
+            <a class="project-slide__link" href="projects/asset-library-ux.html" aria-label="View the Asset Library UX case study">
+              <img src="assets/images/covers/concepts/ai-asset-library-past-projects-v3-connected-4x5.webp" loading="lazy" decoding="async"
+                   alt="Projects view connecting three source videos to their generated short clips">
+            </a>
+          </figure>
+
+          <figure class="project-slide" data-project-slide hidden
+                  data-title="Storage has a cost"
+                  data-copy="Temporary, permanent and additional capacity made the trade-off visible.">
+            <a class="project-slide__link" href="projects/asset-library-ux.html" aria-label="View the Asset Library UX case study">
+              <img src="assets/images/covers/concepts/ai-asset-library-storage-model-v11-matched-media-4x5.webp" loading="lazy" decoding="async"
+                   alt="Asset storage flow comparing temporary and permanent media with token-funded additional capacity">
+            </a>
+          </figure>
+
+          <button class="project-carousel__edge project-carousel__edge--prev" type="button" data-story-dir="-1" aria-label="Previous Asset Library artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <button class="project-carousel__edge project-carousel__edge--next" type="button" data-story-dir="1" aria-label="Next Asset Library artwork">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div class="project-carousel__controls">
+          <div class="project-carousel__dots" aria-label="Choose Asset Library artwork">
+            <button type="button" data-story-dot="0" aria-label="Show artwork 1" aria-current="true"></button>
+            <button type="button" data-story-dot="1" aria-label="Show artwork 2"></button>
+            <button type="button" data-story-dot="2" aria-label="Show artwork 3"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-story__copy">
+        <h3 class="project-story__name" id="asset-library-story-title">Asset Library UX</h3>
+        <p class="project-story__meta">Product design &middot; Via design agency &middot; 2023&ndash;2024 &middot; Exploration</p>
+
+        <div class="project-story__caption" aria-live="polite" aria-atomic="true">
+          <span class="project-story__count"><b data-story-now>01</b> / 03</span>
+          <h4 data-story-title>One recording, many moments</h4>
+          <p data-story-copy>Long-form content becomes a set of short-form candidates.</p>
+          <p class="project-story__mobile-data" data-story-details hidden></p>
+        </div>
+      </div>
+    </article>
+
+    <div class="work-more__head">
+      <h3>More selected work</h3>
+      <span class="rule"></span>
+    </div>
+
+    <div class="acc-slider">
+      <div class="acc-track acc-track--single" data-track data-page="0">
+
+        <div class="acc-page acc-page--three">
+          <a class="acc__card acc__card--dental" href="projects/dental-clinic.html">
+            <img class="acc__cover acc__cover--portrait" src="assets/images/covers/concepts/dental-clinic-equipment-v10-portrait.png" alt="Porcelain dental arch, intraoral scanner, and diagnostic imaging panel representing an integrated dental clinic system">
+            <img class="acc__cover acc__cover--landscape" src="assets/images/covers/concepts/dental-clinic-equipment-v10-hover.png" alt="" aria-hidden="true">
+            <div class="acc__info">
+              <span class="eyebrow">Healthcare System</span>
+              <h3 class="acc__name">Dental Clinic System</h3>
+            </div>
+          </a>
+
+          <a class="acc__card acc__card--vantage" href="projects/vantage.html">
+            <img class="acc__cover acc__cover--portrait" src="assets/images/covers/concepts/vantage-risk-gates-v3-no-subtitle.png" alt="Vantage market decision cover showing a falling price path stopped above a buy zone">
+            <img class="acc__cover acc__cover--landscape" src="assets/images/covers/concepts/vantage-risk-gates-v5-hover.png" alt="" aria-hidden="true">
+            <div class="acc__info">
+              <span class="eyebrow">Market Decision Tool</span>
+              <h3 class="acc__name">Vantage</h3>
+            </div>
+          </a>
+
+          <a class="acc__card acc__card--freight" href="projects/freight-quote-app.html">
+            <img class="acc__cover acc__cover--portrait" src="assets/images/covers/concepts/freight-drayeasy-port-to-road-v4-no-subtitle.png" alt="Architectural freight model connecting a container port to inland road transport with a blue route line">
+            <img class="acc__cover acc__cover--landscape" src="assets/images/covers/concepts/freight-drayeasy-port-to-road-v6-hover.png" alt="" aria-hidden="true">
+            <div class="acc__info">
+              <span class="eyebrow">Mobile Freight UX</span>
+              <h3 class="acc__name">Freight Quote App</h3>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT — 只回答「为什么由同一个人做设计与工程会更好」。
+     身份与接单信息已经在 Hero / Contact，行业范围已经由作品证明，
+     这里不重复履历、工具观或项目清单。
+     ============================================================ -->
+<section class="band" id="about">
+  <div class="shell inset">
+
+    <div class="band__head">
+      <span class="eyebrow">About</span>
+      <span class="rule"></span>
+    </div>
+
+    <h2 class="h2" style="margin-bottom:var(--sp-lg)">Design and code,<br>in one person.</h2>
+
+    <p class="prose">
+      UX/UI designer turned full-stack developer. I help founders and small teams turn unclear
+      product problems into designed, built and deployed software — without losing intent in the handoff.
+    </p>
+
+  </div>
+
+    <!-- 碰撞带：上行设计 / 下行工程，反向永动（§8 第二次放宽，2026-08-05 修订）。
+         位移由 CSS animation 驱动，两行各自无限循环、方向相反；hover 整条带子暂停，
+         让"词要能被读到"这条要求仍然成立。词表在轨道内重复两遍，配合 -50% 位移无缝。
+         词表只保留客户能理解的能力层级，不再把框架与工具名堆成简历。 -->
+    <div class="collide" data-collide tabindex="0" aria-label="Design and engineering capabilities. Focus or hover to pause motion.">
+      <div class="collide__group">
+        <span class="collide__tag">Design</span>
+        <div class="collide__track" data-drift="left">
+          <span class="collide__word">PRODUCT RESEARCH</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">PRODUCT DEFINITION</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">INFORMATION ARCHITECTURE</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">INTERFACE DESIGN</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DESIGN SYSTEMS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">RESPONSIVE DESIGN</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">PRODUCT RESEARCH</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">PRODUCT DEFINITION</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">INFORMATION ARCHITECTURE</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">INTERFACE DESIGN</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DESIGN SYSTEMS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">RESPONSIVE DESIGN</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+        </div>
+      </div>
+      <div class="collide__group">
+        <span class="collide__tag">Engineering</span>
+        <div class="collide__track" data-drift="right">
+          <span class="collide__word">REACT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">NEXT.JS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">TYPESCRIPT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DATABASES</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">API INTEGRATIONS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DEPLOYMENT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">REACT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">NEXT.JS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">TYPESCRIPT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DATABASES</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">API INTEGRATIONS</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+          <span class="collide__word">DEPLOYMENT</span><span class="collide__sep" aria-hidden="true">&middot;</span>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     CARD SECTION — 原型 3b，按 §13.4 改造
+     ① 移除导航  ② SCROLL → BACK TO TOP  ③ H1 降级为 H2（视觉不变）
+     ④ 定位句改为名片属性内容  ⑤ 字标随导航一并移除（§13.5 ②）
+     CTA 文案 View Work → Hire Me（§13.5 ①）
+     高度维持 800px + 64px 占位块恢复构图（§13.5 ③）
+     ============================================================ -->
+<section class="screen cardsec" id="contact">
+  <!-- 占位：补回移除导航空出的 64px，恢复原型的视觉居中（§13.5 ③ 方案 B） -->
+  <div class="cardsec__spacer" aria-hidden="true"></div>
+
+  <div class="cardsec__stage">
+    <span class="glyph" aria-hidden="true">C</span>
+    <div class="cardsec__overlay">
+      <h2 class="cardsec__name">Clark Huang</h2>
+      <a class="cta cta--b" href="mailto:clarkswift1@gmail.com">Hire Me <span class="cta__arrow">&rarr;</span></a>
+      <p class="cardsec__meta">
+        clarkswift1@gmail.com
+        <span class="cardsec__avail">Los Angeles &middot; Available for freelance and contract</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="scrollbar">
+    <span class="scrollbar__rule"></span>
+    <a class="scrollbar__label" href="#top">Back to top</a>
+    <span class="scrollbar__rule"></span>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="mailto:clarkswift1@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* Project stories: one large artifact at a time. Only an on-screen story
+   advances, and it yields whenever the visitor hovers, focuses or interacts. */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-project-carousel]'), function (root) {
+    var stage = root.querySelector('.project-story__stage');
+    var slides = Array.prototype.slice.call(root.querySelectorAll('[data-project-slide]'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('[data-story-dot]'));
+    var now = root.querySelector('[data-story-now]');
+    var title = root.querySelector('[data-story-title]');
+    var copy = root.querySelector('[data-story-copy]');
+    var details = root.querySelector('[data-story-details]');
+    var active = 0;
+    var pointerStart = null;
+    var autoplayTimer = null;
+    var autoplayDelay = 5200;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var suppressSlideClick = false;
+    var inViewport = false;
+
+    function stopAutoplay() {
+      window.clearTimeout(autoplayTimer);
+      autoplayTimer = null;
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (!inViewport || reduceMotion.matches || document.hidden || root.matches(':hover') || root.contains(document.activeElement)) return;
+      autoplayTimer = window.setTimeout(function () {
+        render(active + 1, false);
+        startAutoplay();
+      }, autoplayDelay);
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    function render(next, moveFocus) {
+      active = (next + slides.length) % slides.length;
+
+      slides.forEach(function (slide, index) {
+        var selected = index === active;
+        slide.hidden = !selected;
+        slide.classList.toggle('is-active', selected);
+        slide.setAttribute('aria-hidden', selected ? 'false' : 'true');
+      });
+
+      dots.forEach(function (dot, index) {
+        if (index === active) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+
+      var current = slides[active];
+      if (now) now.textContent = String(active + 1).padStart(2, '0');
+      if (title) title.textContent = current.getAttribute('data-title') || '';
+      if (copy) copy.textContent = current.getAttribute('data-copy') || '';
+      if (details) {
+        var detailText = current.getAttribute('data-details') || '';
+        details.textContent = detailText;
+        details.hidden = !detailText;
+      }
+      if (moveFocus && stage) stage.focus({ preventScroll: true });
+    }
+
+    root.addEventListener('click', function (event) {
+      var direction = event.target.closest('[data-story-dir]');
+      if (direction) {
+        render(active + Number(direction.getAttribute('data-story-dir')), false);
+        restartAutoplay();
+        return;
+      }
+
+      var dot = event.target.closest('[data-story-dot]');
+      if (dot) {
+        render(Number(dot.getAttribute('data-story-dot')), false);
+        restartAutoplay();
+      }
+    });
+
+    stage.addEventListener('keydown', function (event) {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      render(active + (event.key === 'ArrowRight' ? 1 : -1), true);
+      restartAutoplay();
+    });
+
+    stage.addEventListener('pointerdown', function (event) {
+      pointerStart = { x: event.clientX, y: event.clientY };
+      suppressSlideClick = false;
+    });
+    stage.addEventListener('pointerup', function (event) {
+      if (!pointerStart) return;
+      var dx = event.clientX - pointerStart.x;
+      var dy = event.clientY - pointerStart.y;
+      pointerStart = null;
+      if (Math.abs(dx) < 44 || Math.abs(dx) < Math.abs(dy)) return;
+      suppressSlideClick = true;
+      render(active + (dx < 0 ? 1 : -1), false);
+      restartAutoplay();
+    });
+    stage.addEventListener('pointercancel', function () { pointerStart = null; suppressSlideClick = false; });
+    stage.addEventListener('click', function (event) {
+      if (!suppressSlideClick || !event.target.closest('.project-slide__link')) return;
+      event.preventDefault();
+      suppressSlideClick = false;
+    });
+
+    root.addEventListener('mouseenter', stopAutoplay);
+    root.addEventListener('mouseleave', startAutoplay);
+    root.addEventListener('focusin', stopAutoplay);
+    root.addEventListener('focusout', function () { window.setTimeout(startAutoplay, 0); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopAutoplay();
+      else startAutoplay();
+    });
+    if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', startAutoplay);
+
+    render(0, false);
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        var entry = entries[0];
+        inViewport = entry.isIntersecting && entry.intersectionRatio >= .25;
+        if (inViewport) startAutoplay();
+        else stopAutoplay();
+      }, { threshold: [0, .25] });
+      observer.observe(root);
+    } else {
+      inViewport = true;
+      startAutoplay();
+    }
+  });
+})();
+
+/* More selected work：当前为三张单页；保留分页逻辑供未来项目扩展。 */
+(function () {
+  var track = document.querySelector('[data-track]');
+  if (!track) return;
+  var nav   = document.querySelector('.acc-nav');
+  if (!nav) return;
+  var now   = document.querySelector('[data-page-now]');
+  var pages = track.querySelectorAll('.acc-page').length;
+  var page  = 0;
+
+  function render() {
+    track.setAttribute('data-page', String(page));
+    if (now) now.textContent = String(page + 1).padStart(2, '0');
+    var stacked = window.matchMedia('(max-width: 820px)').matches;
+    Array.prototype.forEach.call(track.querySelectorAll('.acc-page'), function (panel, index) {
+      var inactive = !stacked && index !== page;
+      panel.toggleAttribute('inert', inactive);
+      panel.setAttribute('aria-hidden', inactive ? 'true' : 'false');
+    });
+    Array.prototype.forEach.call(nav.querySelectorAll('button'), function (b) {
+      var next = page + Number(b.getAttribute('data-dir'));
+      b.disabled = next < 0 || next > pages - 1;
+    });
+  }
+
+  nav.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b || b.disabled) return;
+    page = Math.min(pages - 1, Math.max(0, page + Number(b.getAttribute('data-dir'))));
+    render();
+  });
+
+  /* 焦点在作品区内时，左右方向键翻页 */
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    var section = track.closest('section');
+    if (!section.contains(document.activeElement)) return;
+    page = Math.min(pages - 1, Math.max(0, page + (e.key === 'ArrowRight' ? 1 : -1)));
+    render();
+  });
+
+  render();
+
+  var stackQuery = window.matchMedia('(max-width: 820px)');
+  if (stackQuery.addEventListener) stackQuery.addEventListener('change', render);
+  else stackQuery.addListener(render);
+})();
+
+/* 碰撞带的位移由 CSS animation 驱动。重复的后一半只服务于无缝循环，
+   不应让读屏软件把同一份能力清单朗读两次。 */
+(function () {
+  Array.prototype.forEach.call(document.querySelectorAll('.collide__track'), function (track) {
+    var children = Array.prototype.slice.call(track.children);
+    var duplicateStart = Math.floor(children.length / 2);
+    children.slice(duplicateStart).forEach(function (item) {
+      item.setAttribute('aria-hidden', 'true');
+    });
+  });
+})();
+</script>
+
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

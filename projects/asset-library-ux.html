@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asset Library UX &mdash; Clark Huang</title>
+<meta name="description" content="An evidence-led product design case study for an early OpusClip Asset Library exploration: creator workflows, information architecture, storage states and product boundaries.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="case-asset-library">
+
+<header class="screen screen--page" id="top">
+  <div class="bloom-top"></div>
+  <div class="vignette"></div>
+  <nav class="nav nav--split">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--over-photo">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+  <div class="pagehead">
+    <div class="pagehead__eyebrow eyebrow">Product Design &middot; Agency-Mediated Contract &middot; 2023&ndash;2024</div>
+    <h1 class="pagehead__title">Asset Library UX</h1>
+    <p class="pagehead__lede">An early exploration of browsing, retention and storage for uploaded media.</p>
+  </div>
+</header>
+
+<section class="band band--tight case-summary-band">
+  <div class="shell inset">
+    <dl class="metabar">
+      <div><dt>Role</dt><dd>Product designer, via design agency</dd></div>
+      <div><dt>Duration</dt><dd>Late 2023 &ndash; April 2024</dd></div>
+      <div><dt>Team</dt><dd>Agency design team + OpusClip design counterpart</dd></div>
+      <div><dt>Status</dt><dd>Concept presented; adoption unknown</dd></div>
+    </dl>
+    <nav class="case-nav" aria-label="Case study sections">
+      <a href="#proof">Proof</a>
+      <a href="#context">Context</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#takeaways">Takeaways</a>
+    </nav>
+  </div>
+</section>
+
+<main>
+  <section class="band case-proof-band" id="proof">
+    <div class="shell inset">
+      <div class="case-proof-head">
+        <h2>Original Figma interface states.</h2>
+        <p>All supported broad scanning, Videos prioritized duration, and Projects prioritized file count.</p>
+      </div>
+
+      <div class="case-state-proof" aria-label="Original Figma library filter explorations">
+        <figure class="case-state-proof__overview">
+          <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-all-view.jpg" aria-label="Open the All view at full size">
+            <img src="../assets/images/asset-library/library-all-view.jpg" alt="Original Figma Asset Library exploration with the All tab selected, showing folders and mixed video media">
+          </button>
+          <figcaption>All</figcaption>
+        </figure>
+
+        <div class="case-state-proof__variants">
+          <figure>
+            <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-videos-view.jpg" aria-label="Open the Videos view at full size">
+              <img src="../assets/images/asset-library/library-videos-view.jpg" alt="Original Figma Asset Library exploration with the Videos tab selected and duration labels on video cards">
+            </button>
+            <figcaption>Videos</figcaption>
+          </figure>
+          <figure>
+            <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-projects-view.jpg" aria-label="Open the Projects view at full size">
+              <img src="../assets/images/asset-library/library-projects-view.jpg" alt="Original Figma Asset Library exploration with the Projects tab selected, showing file counts and proposed expiry labels">
+            </button>
+            <figcaption>Projects</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band case-context-band" id="context">
+    <div class="shell inset">
+      <div class="case-lead">
+        <h2 class="case-lead__statement">One route for finding, retaining and reusing uploaded media.</h2>
+        <div class="case-lead__body">
+          <p class="prose">At the time, users submitted a long-video URL, spent credits and received AI-selected short clips. The Asset Library did not yet exist, and my assignment was not a finished PRD. I made one end-to-end route concrete enough for the team to evaluate its browsing model, storage lifecycle and boundary with generated work.</p>
+        </div>
+      </div>
+
+      <dl class="case-facts">
+        <div class="case-fact"><dt>Competitive review</dt><dd>I personally compared Runway, Canva, Vimeo and VEED before developing the Figma route.</dd></div>
+        <div class="case-fact"><dt>Design scope</dt><dd>Browsing states, media classification, expiry, plan capacity and storage warnings.</dd></div>
+        <div class="case-fact"><dt>Scope boundary</dt><dd>Later AI B-roll, final pricing, engineering architecture, launch ownership and post-launch metrics were outside this work.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band case-decisions-band" id="decisions">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Design decisions</span><span class="rule"></span></div>
+      <div class="case-challenges">
+        <article class="case-challenge">
+          <h3>One library needed more than one way in.</h3>
+          <div class="case-challenge__body">
+            <p>These early frames assumed the Library would hold video material. A dropdown filtered <strong>All, Footage or B-roll</strong>, while grid and list views tested visual browsing against denser source, date, duration and expiry metadata. The later route shown above moved broader categories into persistent tabs.</p>
+          </div>
+
+          <div class="case-process-proof" aria-label="Earlier Figma library structure explorations">
+            <figure>
+              <figcaption>Card grid · Footage selected</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-early-grid-footage.jpg" aria-label="Open the earlier card grid with Footage selected at full size">
+                <img src="../assets/images/asset-library/library-early-grid-footage.jpg" alt="Earlier Figma Asset Library structure using a card grid and an All, Footage and B-roll filter, with Footage selected" loading="lazy">
+              </button>
+            </figure>
+            <figure>
+              <figcaption>Metadata list · All selected</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-early-list-all.jpg" aria-label="Open the earlier metadata list with All selected at full size">
+                <img src="../assets/images/asset-library/library-early-list-all.jpg" alt="Earlier Figma Asset Library structure using a metadata list and an All, Footage and B-roll filter, with All selected" loading="lazy">
+              </button>
+            </figure>
+          </div>
+        </article>
+        <article class="case-challenge">
+          <h3>Storage raised an unresolved business-model question.</h3>
+          <div class="case-challenge__body">
+            <p>I visualized one possible route for communicating expiry, plan capacity and additional storage. The original Figma states show a media expiry, a low-use plan, an orange warning after more than half was used and a red near-limit state. Credits remain unchanged in the plan examples.</p>
+          </div>
+
+          <div class="case-storage-proof" aria-label="Original Figma retention and storage states">
+            <figure>
+              <figcaption>Expiry</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/expiry-state.jpg" aria-label="Open the expiry state at full size">
+                <img src="../assets/images/asset-library/expiry-state.jpg" alt="Original Figma media card showing a time and an expiry date">
+              </button>
+            </figure>
+            <figure>
+              <figcaption>20% used</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/plan-storage-active-state.jpg" aria-label="Open the 20 percent used plan state at full size">
+                <img src="../assets/images/asset-library/plan-storage-active-state.jpg" alt="Original Figma plan state showing credits and 20 percent of storage used">
+              </button>
+            </figure>
+            <figure>
+              <figcaption>More than half used</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/storage-ring-exploration.jpg" aria-label="Open the more-than-half-used storage warning at full size">
+                <img src="../assets/images/asset-library/storage-ring-exploration.jpg" alt="Original Figma storage ring showing more than half used in orange">
+              </button>
+            </figure>
+            <figure>
+              <figcaption>Near limit</figcaption>
+              <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/plan-storage-limit-state.jpg" aria-label="Open the near-limit plan state at full size">
+                <img src="../assets/images/asset-library/plan-storage-limit-state.jpg" alt="Original Figma plan state showing storage near its limit">
+              </button>
+            </figure>
+          </div>
+        </article>
+        <article class="case-challenge">
+          <h3>All brought different models together without mixing them.</h3>
+          <div class="case-challenge__body">
+            <p>I proposed <strong>All</strong> as a grouped overview: Folders first, Projects next, followed by individual Videos and Images. Projects reused the existing clipping-history model, keeping each source video with its generated clips, while reusable files remained in their own sections. This was an information-architecture proposal; I had not evaluated backend storage cost or implementation.</p>
+          </div>
+
+          <figure class="case-transition-proof">
+            <figcaption>Transition state · Folders and Projects grouped inside All</figcaption>
+            <button class="case-state-proof__open" type="button" data-full-image="../assets/images/asset-library/library-transition-grouped-all.jpg" aria-label="Open the transition All view with grouped Folders and Projects at full size">
+              <img src="../assets/images/asset-library/library-transition-grouped-all.jpg" alt="Earlier Figma Asset Library All tab with persistent tabs and separate Folders and Projects sections" loading="lazy">
+            </button>
+          </figure>
+        </article>
+      </div>
+      <p class="case-boundary"><span>Evidence boundary</span> Presented through the agency engagement. No participant-based usability study, adoption data or later product outcome is claimed.</p>
+    </div>
+  </section>
+
+  <section class="band case-takeaways-band" id="takeaways">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Takeaways</span><span class="rule"></span></div>
+      <ul class="takeaway">
+        <li>One label can hide distinct models: reusable inputs, project history and generated outputs.</li>
+        <li>Storage screens make expiry, healthy capacity and approaching limits visible.</li>
+      </ul>
+      <div class="case-close">
+        <div>
+          <h2>Have an underdefined product problem?</h2>
+        </div>
+        <a class="cta cta--a" href="mailto:clarkswift1@gmail.com">Discuss a project <span class="cta__arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="case-lightbox" data-case-lightbox aria-labelledby="case-lightbox-title">
+  <div class="case-lightbox__bar">
+    <p id="case-lightbox-title" data-case-lightbox-title>Full-size Figma view</p>
+    <button class="case-lightbox__close" type="button" data-case-lightbox-close>Close</button>
+  </div>
+  <div class="case-lightbox__media">
+    <img src="../assets/images/asset-library/library-all-view.jpg" data-case-lightbox-image alt="Original Figma Asset Library exploration with the All tab selected">
+  </div>
+</dialog>
+
+<section class="band band--tight">
+  <div class="shell inset">
+    <div class="pagenav">
+      <a class="cta cta--b" href="../index.html#work"><span class="cta__arrow">&larr;</span> All work</a>
+      <a class="cta cta--b" href="freight-quote-app.html">Freight Quote App <span class="cta__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="mailto:clarkswift1@gmail.com">Email</a><a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var dialog = document.querySelector('[data-case-lightbox]');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+
+  var image = dialog.querySelector('[data-case-lightbox-image]');
+  var title = dialog.querySelector('[data-case-lightbox-title]');
+  var close = dialog.querySelector('[data-case-lightbox-close]');
+  var trigger = null;
+
+  Array.prototype.forEach.call(document.querySelectorAll('.case-state-proof__open'), function (openButton) {
+    openButton.addEventListener('click', function () {
+      var figure = openButton.closest('figure');
+      var source = figure && figure.querySelector('img');
+      var label = figure && figure.querySelector('figcaption');
+      if (!source) return;
+
+      trigger = openButton;
+      image.src = openButton.getAttribute('data-full-image');
+      image.alt = source.alt;
+      title.textContent = (label ? label.textContent : 'Figma') + ' — full-size view';
+      dialog.showModal();
+    });
+  });
+
+  close.addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    dialog.close();
+  });
+  dialog.addEventListener('click', function (event) {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('close', function () {
+    if (trigger) trigger.focus();
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenSeason &mdash; Clark Huang</title>
+<meta name="description" content="A live California road-trip decision product that ranks destinations by current conditions, tests whether a route still holds, and keeps a credible Plan B ready.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="os-page">
+<a class="os-skip" href="#decision">Skip to the case study</a>
+
+<header class="os-hero" id="top">
+  <nav class="os-global-nav" aria-label="Portfolio navigation">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--plain">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="os-hero__grid">
+    <div class="os-hero__copy">
+      <p class="os-status"><span></span> Live product &middot; California road trips</p>
+      <h1>Open<br>Season</h1>
+      <p class="os-hero__lede">Make one road-trip decision before the conditions change.</p>
+      <div class="os-hero__actions">
+        <a class="cta cta--a" href="#decision">See the decision <span class="cta__arrow">&darr;</span></a>
+      </div>
+      <dl class="os-hero__facts">
+        <div><dt>Role</dt><dd>Product strategy, UX and full-stack development</dd></div>
+        <div><dt>Scope</dt><dd>Decision model, interface, data pipeline and deployment</dd></div>
+        <div><dt>Evidence</dt><dd>Field use, 137 tests and production data verification</dd></div>
+      </dl>
+    </div>
+
+    <a class="os-hero__artifact" href="https://www.getopenseason.com/" target="_blank" rel="noreferrer" aria-label="Open the live OpenSeason product">
+      <img src="../assets/images/covers/concepts/openseason-primary-v1.webp" alt="OpenSeason product premise artwork showing a California mountain route with live weather, road and lodging signals" fetchpriority="high">
+      <span class="os-artifact-label">Product premise &middot; fourteen live sources, one route verdict</span>
+    </a>
+  </div>
+
+  <svg class="os-route-mark" viewBox="0 0 220 560" aria-hidden="true">
+    <path d="M58 8C27 73 110 107 73 171S132 268 92 332s79 101 37 219" />
+    <circle cx="58" cy="8" r="5"/><circle cx="73" cy="171" r="5"/><circle cx="92" cy="332" r="5"/><circle cx="129" cy="551" r="5"/>
+  </svg>
+</header>
+
+<nav class="os-story-nav" aria-label="OpenSeason story sections" data-os-story-nav>
+  <div class="os-story-nav__inner">
+    <span class="os-story-nav__current" data-os-current>Decision</span>
+    <div class="os-story-nav__links">
+      <a href="#decision" data-os-link="decision" aria-current="true">Decision</a>
+      <a href="#model" data-os-link="model">Model</a>
+      <a href="#field-test" data-os-link="field-test">Field test</a>
+      <a href="#proof" data-os-link="proof">Proof</a>
+      <a href="#outcome" data-os-link="outcome">Outcome</a>
+    </div>
+    <a class="os-story-nav__top" href="#top" aria-label="Back to the top">Top &uarr;</a>
+  </div>
+</nav>
+
+<main>
+  <section class="os-section os-section--paper" id="decision" data-os-section="Decision">
+    <div class="shell inset">
+      <div class="os-decision-layout">
+        <div class="os-decision-copy">
+          <h2 class="os-section-heading">A recommendation that can say no.</h2>
+          <ol class="os-decision-logic" aria-label="OpenSeason decision structure">
+            <li><span>Why now</span><strong>Current fit, not popularity.</strong></li>
+            <li><span>Watch out</span><strong>The condition that could change the trip.</strong></li>
+            <li><span>Plan B</span><strong>A ready alternative if it does.</strong></li>
+          </ol>
+        </div>
+        <a class="os-story-art os-decision-art os-cover-link" href="https://www.getopenseason.com/plan" target="_blank" rel="noreferrer" aria-label="Open the live OpenSeason Plan page">
+          <img src="../assets/images/covers/concepts/openseason-decision/V2/artwork.png" alt="California Highway 1 coastline with a route interruption, smoke, wind and an alternate inland path">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="os-section" id="model" data-os-section="Model">
+    <div class="shell inset">
+      <div class="os-model">
+        <div class="os-model__copy">
+          <h2 class="os-section-heading">Explore. Plan. Recheck.</h2>
+          <ol class="os-model__steps">
+            <li>
+              <span>Explore</span>
+              <strong>Find what fits now.</strong>
+            </li>
+            <li>
+              <span>Plan</span>
+              <strong>Turn the choice into a route.</strong>
+            </li>
+            <li>
+              <span>Recheck</span>
+              <strong>Test whether it still holds.</strong>
+            </li>
+          </ol>
+        </div>
+        <div class="os-model__visuals">
+          <a class="os-story-art os-cover-link" href="https://www.getopenseason.com/explore" target="_blank" rel="noreferrer" aria-label="Open the live OpenSeason Explore page">
+            <img src="../assets/images/covers/concepts/openseason-find-your-wild-v6-white-route-4x5.webp" alt="Find Your Wild artwork connecting California coast, Sierra, forest, desert and gateway conditions" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="os-section os-section--field" id="field-test" data-os-section="Field test">
+    <div class="shell inset">
+      <div class="os-section__intro">
+        <h2>The road stayed in the design loop.</h2>
+        <p>Field road trips and recurring long-drive needs shaped each iteration.</p>
+      </div>
+
+      <div class="os-field-route" aria-label="Field-use iteration sequence">
+        <div><span>Field road trips</span><strong>Design assumptions met real conditions.</strong></div>
+        <div><span>Shared travel needs</span><strong>Closures, weather and availability decide whether a long drive still makes sense.</strong></div>
+        <div><span>Product iteration</span><strong>Those signals shaped ranking, alerts and Plan B.</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="os-section" id="proof" data-os-section="Proof">
+    <div class="shell inset">
+      <div class="os-proof-lead">
+        <div class="os-section__intro os-section__intro--dark os-proof-copy">
+          <h2>API success is not data correctness.</h2>
+          <p>Park, weather, road and route APIs shape every recommendation. A successful response still has to represent the right place, time and route.</p>
+        </div>
+        <figure class="os-story-art os-api-art">
+          <img src="../assets/images/covers/concepts/openseason-decision/V3/artwork-v9.png" alt="Windshield route projection combining road access, wildfire conditions and two route checkpoints" loading="lazy">
+        </figure>
+      </div>
+
+      <div class="os-verification" aria-label="Data verification process">
+        <div><span>Valid response</span><strong>The API returned data.</strong></div>
+        <div><span>Wrong place</span><strong>Many IDs belonged to other states.</strong></div>
+        <div><span>Independent check</span><strong>Coordinates exposed the mismatch.</strong></div>
+        <div><span>Meaningful snapshot</span><strong>Closed and non-reservable sites no longer distort fill.</strong></div>
+      </div>
+
+      <p class="os-proof-result"><strong>51 pins across 17 destinations</strong> are coordinate-checked. <strong>137 tests across 38 suites</strong> protect the decision logic.</p>
+
+      <details class="os-appendix">
+        <summary>Production architecture <span>For a technical review</span></summary>
+        <div class="os-appendix__body">
+          <dl>
+            <div><dt>Interface</dt><dd>Next.js 16, React 19 and strict TypeScript carry a travel-editorial surface rather than a dashboard.</dd></div>
+            <div><dt>Decision layer</dt><dd>Eight weighted fit dimensions plus contextual modifiers produce an explainable order.</dd></div>
+            <div><dt>Data</dt><dd>Supabase Postgres with PostGIS, row-level security and user-isolated trips and preferences.</dd></div>
+            <div><dt>Live conditions</dt><dd>A daily ingestion run normalizes weather, road, park, wildfire and lodging signals; one failed source warns and skips.</dd></div>
+            <div><dt>Resilience</dt><dd>Anonymous browsing can fall back to 33 deterministic California destinations without constructing a database client.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="os-appendix">
+        <summary>Other decisions <span>Ranking, alerts and recency</span></summary>
+        <div class="os-appendix__body os-appendix__body--columns">
+          <div><h3>Ranking is not scoring.</h3><p>Drive tolerance, interests, group profile, trip format and date modify the base fit score. The neutral group profile contributes zero to avoid double-counting group fit.</p></div>
+          <div><h3>A closed road is not one fewer lane.</h3><p>Alerts collapse into block, warn or inform. Old alerts expire after 180 days unless they are identified as standing orders.</p></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="os-section os-section--outcome" id="outcome" data-os-section="Outcome">
+    <div class="shell inset">
+      <div class="os-outcome-lead">
+        <div>
+          <h2>Worth the drive&mdash;right now.</h2>
+          <p class="os-outcome-copy">The product stays behind the experience: coast, mountains, redwoods, desert, sunset&mdash;and the In-N-Out stop.</p>
+        </div>
+        <a class="os-outcome-art os-cover-link" href="https://www.getopenseason.com/destinations/big-sur-carmel" target="_blank" rel="noreferrer" aria-label="Open the live OpenSeason Big Sur Coast page">
+          <img src="../assets/images/covers/concepts/openseason-worth-the-drive-v2-in-n-out-4x5.webp" alt="California road-trip experience artwork combining coast, mountains, redwoods, desert, sunset and an In-N-Out stop" loading="lazy">
+        </a>
+      </div>
+      <div class="os-contact">
+        <div><h2>Have a project in mind?</h2><p>Tell me what you&rsquo;re building and where you need help.</p></div>
+        <a class="cta cta--a" href="mailto:clarkswift1@gmail.com?subject=Freelance%20project%20inquiry">Discuss a project <span class="cta__arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="os-next">
+  <div class="shell inset">
+    <nav aria-label="Adjacent projects">
+      <a href="wsc-auto.html"><span>Previous</span><strong>WSC Auto</strong></a>
+      <a href="dental-clinic.html"><span>Next</span><strong>Dental Clinic System</strong></a>
+    </nav>
+  </div>
+</section>
+
+<footer class="footer os-footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="mailto:clarkswift1@gmail.com">Email</a><a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const links = Array.from(document.querySelectorAll('[data-os-link]'));
+  const sections = Array.from(document.querySelectorAll('[data-os-section]'));
+  const current = document.querySelector('[data-os-current]');
+  if (!links.length || !sections.length || !current || !('IntersectionObserver' in window)) return;
+
+  const setCurrent = (id, label) => {
+    current.textContent = label;
+    links.forEach((link) => {
+      if (link.dataset.osLink === id) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setCurrent(visible.target.id, visible.target.dataset.osSection);
+  }, { rootMargin: '-24% 0px -60% 0px', threshold: [0, .15, .35] });
+
+  sections.forEach((section) => observer.observe(section));
+})();
+</script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dental Clinic System — Clark Huang</title>
+<meta name="description" content="Two applications on one Firebase backend for a five-location dental group: patient booking and a role-scoped operations console with a procedurally generated 3D tooth chart.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="case-dental">
+
+<header class="screen screen--page" id="top">
+  <div class="bloom-top"></div>
+  <div class="vignette"></div>
+
+  <nav class="nav nav--split">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--over-photo">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="pagehead">
+    <div class="pagehead__eyebrow eyebrow">Product Design + Full-Stack &middot; Clinician Collaboration</div>
+    <h1 class="pagehead__title">Dental Clinic System</h1>
+    <p class="pagehead__lede">A patient booking app and a role-scoped staff console sharing one clinical record system for a five-location dental group.</p>
+  </div>
+</header>
+
+<section class="band band--tight case-summary-band">
+  <div class="shell inset">
+    <dl class="metabar">
+      <div><dt>Role</dt><dd>Product design + full-stack development</dd></div>
+      <div><dt>Intended users</dt><dd>Patients + location-scoped clinic staff</dd></div>
+      <div><dt>Collaboration</dt><dd>Clinician domain partner</dd></div>
+      <div><dt>Status</dt><dd>Built and demonstrated; not delivered</dd></div>
+    </dl>
+    <nav class="case-nav" aria-label="Case study sections">
+      <a href="#product">Product</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#design">Design</a>
+      <a href="#challenges">Challenges</a>
+    </nav>
+  </div>
+</section>
+
+<main>
+
+<section class="band" id="product">
+  <div class="shell inset">
+    <div class="case-proof-head">
+      <h2>Two applications,<br>one clinical record system.</h2>
+      <p>The public app was built for appointment requests. A separate, location-scoped staff console organized schedules, records, dental charts and treatment planning over the same shared dataset.</p>
+    </div>
+
+    <div class="case-gallery" id="screens" data-case-gallery tabindex="0" aria-label="Dental Clinic System interface carousel">
+      <div class="case-gallery__viewport" aria-live="polite">
+        <figure class="case-gallery__slide" data-case-slide>
+          <div class="case-gallery__media"><img src="../assets/images/dental/patient-booking.jpg" alt="Demo patient-facing dental appointment form"></div>
+          <figcaption class="case-gallery__caption">Demo state · Patient booking — the public application collects the minimum information needed to begin an appointment request.</figcaption>
+        </figure>
+        <figure class="case-gallery__slide" data-case-slide hidden>
+          <div class="case-gallery__media"><img src="../assets/images/dental/staff-day-view.jpg" alt="Demo staff day schedule with dental appointments" loading="lazy"></div>
+          <figcaption class="case-gallery__caption">Demo state · Staff schedule — the internal application turns incoming requests into a location-scoped working day.</figcaption>
+        </figure>
+        <figure class="case-gallery__slide" data-case-slide hidden>
+          <div class="case-gallery__media"><img src="../assets/images/dental/patient-record.jpg" alt="Sanitized demo patient record with appointment, medical record and dental chart tabs" loading="lazy"></div>
+          <figcaption class="case-gallery__caption">Sanitized demo state · Patient record — history, documents, dental charts and treatment planning stay attached to one longitudinal record.</figcaption>
+        </figure>
+      </div>
+      <div class="case-gallery__toolbar">
+        <span class="case-gallery__count"><b data-case-current>01</b> / 03</span>
+        <div class="case-gallery__controls">
+          <button class="case-gallery__button" type="button" data-case-previous aria-label="Previous Dental Clinic System screen">&larr;</button>
+          <button class="case-gallery__button" type="button" data-case-next aria-label="Next Dental Clinic System screen">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="architecture">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Architecture</h2>
+      <span class="rule"></span>
+    </div>
+
+    <p class="prose">
+      No custom server. The entire security boundary lives in versioned database rules rather
+      than application code.
+    </p>
+
+    <p class="prose">
+      The brief set that shape. The clinic asked for online booking and for staff to be able to
+      look a patient up — which is not a website with a form on it, but two audiences over one
+      dataset: a public side that takes appointments, and an internal side where records are
+      reached. That needs identity, storage and a permission model from the first day rather
+      than as a later phase. Firebase carries all three with nothing to run, which is how the
+      security boundary ended up in rules instead of in server code.
+    </p>
+
+    <details class="disclose" style="margin-top:var(--sp-lg)">
+      <summary>
+        <span class="disclose__label">Full stack breakdown</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <div class="spec">
+          <div class="spec__row">
+            <div class="spec__key">Shape</div>
+            <div class="spec__val">A monorepo holding two independent React 19 + TypeScript + Vite applications — public and intranet — driven by shared npm scripts with formatting enforced on commit.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Backend</div>
+            <div class="spec__val">Firebase supplies auth, database, storage and hosting. Security sits in versioned Firestore and Storage rules deployed by script.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Data</div>
+            <div class="spec__val">Nine collections covering appointments, confirmations, cancellations, patient profiles, dental charts and their snapshots, medical records and images, with hand-written composite indexes.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Clinical model</div>
+            <div class="spec__val">Per-tooth condition and severity across five surfaces; periodontal probing depths at three points on both sides plus bleeding points; treatment plans with priority and a status machine.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Operations</div>
+            <div class="spec__val">Scripts for bootstrapping the owner account, writing custom claims, seeding and resetting demo data with dry-run support, and deploying rules as part of the normal workflow.</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+
+<section class="band" id="design">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Design</h2>
+      <span class="rule"></span>
+    </div>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Reviewed by video, across a time zone</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The walkthrough covered the way in from both sides: signing in from the public site with
+          an administrator account, arriving at the dashboard, then reading the schedule and the
+          current figures on the internal side. A time-zone gap made a live session impractical,
+          so it went over as screen video to her phone — the running system, not a picture of one.
+        </p>
+        <p class="prose">
+          The next thing raised was a feature. The clinic runs a membership: enough spend across a
+          year opens access to member events, and staff need to know which patient that applies to
+          without going looking. So the member badge went into the admin view.
+        </p>
+        <p class="prose">
+          Requirements arrived that way throughout — in conversation, while the system was being
+          walked through, rather than as a brief settled up front.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Teeth generated, not modelled</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The 3D chart ships no model files. Four tooth archetypes are defined as parameter sets —
+          crown height, root height, neck radius, squash ratios, cusp coordinates — and the
+          geometry is generated at runtime, keeping the payload small and letting nine clinical
+          states drive material colour directly.
+        </p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+
+<section class="band" id="details">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Selected Detail</h2>
+      <span class="rule"></span>
+    </div>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Two cache tiers with cross-tab invalidation</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The database charges per read, so the console uses two cache tiers: an in-memory map with
+          TTL and an IndexedDB layer that survives reloads and warms memory on startup. A broadcast
+          channel tells other open tabs when to invalidate stale data. The cache is partitioned by
+          business domain and degrades cleanly to memory-only.
+        </p>
+        <p class="prose">
+          It is also the one module with unit tests — not a coincidence, since it is the piece
+          where being wrong costs money.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Permissions expressed declaratively</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The rules file does multi-tenant access control without a line of server code: roles
+          resolved from custom claims with a fallback, clinic-level isolation so an administrator
+          only reaches their own locations, and field-level immutability preventing privilege
+          escalation. Patients can cancel their own appointment but cannot move it. Everything
+          ends in a default-deny catch-all.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Living with inherited data</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          A whole family of resolver functions exists purely to normalise legacy records whose
+          fields had drifted — heuristics deciding whether a string looks like a date, a time, a
+          phone number or a name. This is what integrating with a business that already had data
+          looks like.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+
+<section class="band" id="challenges">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Challenges</h2>
+      <span class="rule"></span>
+    </div>
+
+    <!-- Challenge 1 -->
+    <div class="challenge" style="border-top:0;padding-top:0;margin-top:0">
+      <div class="challenge__no">01</div>
+      <h3 class="h3 challenge__title">Scope growth that outran the original stack</h3>
+      <p class="prose challenge__hook">
+        The intranet stayed on plain HTML and JavaScript while React was already running the
+        public site in the same repository. It ended at 23,685 lines with no component model —
+        and one hand-written build pipeline that told me it was time to stop.
+      </p>
+
+      <details class="disclose">
+        <summary>
+          <span class="disclose__label">Read the full write-up</span>
+          <span class="disclose__sign"></span>
+        </summary>
+        <div class="disclose__body">
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 01</span><b>Problem</b></div>
+            <div>
+              <p class="prose">
+                The clinic initially wanted a simple front end, so the project started as plain
+                HTML, CSS and JavaScript. Then the scope kept growing: multi-location permissions,
+                an appointment state machine, the tooth chart, record uploads.
+              </p>
+              <p class="prose">
+                By the first commit the two halves were already on different stacks inside one
+                tree: a React public site at <strong>17,865 lines</strong> across 59 files, and a
+                vanilla intranet at <strong>11,918</strong>. They stayed that way for two and a
+                half months. The tool that would fix the intranet was not something I had still to
+                learn — it was running in the next folder.
+              </p>
+              <p class="prose">
+                The archived code shows where the intranet ended — <strong>23,685 lines</strong> of
+                hand-written source, with a single appointments file at 5,374 lines and no
+                component model, so reuse happened by copying.
+              </p>
+              <p class="prose">
+                One honest caveat: the migration commit records the change but not the reasoning
+                behind it. This problem statement is reconstructed from the archived code, not
+                quoted from a discussion.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 02</span><b>What I tried</b></div>
+            <div>
+              <p class="prose">
+                First I tried to make it survivable in place — shared modules, a unified data access
+                layer, and eventually a hand-rolled build pipeline: one script batch-minifying
+                fourteen files, another rewriting every script tag to point at the minified output.
+              </p>
+              <p class="prose">
+                That pipeline is the tell. <strong>Hand-writing a build process means it is time to
+                adopt a build tool.</strong> Six weeks later the migration landed — public site
+                first, where the risk was lower; the console last.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 03</span><b>The fix</b></div>
+            <div>
+              <p class="prose">
+                One commit, <strong>191 files changed, +35,000 / &minus;37,005</strong>. It removed
+                things too — drag-and-drop rescheduling was deleted outright, because the same
+                operation already existed in the edit modal.
+              </p>
+              <p class="prose">
+                The line count did not collapse, and that is worth stating plainly: the intranet's
+                <strong>13,603 lines</strong> of hand-written JavaScript came out as
+                <strong>12,559 lines</strong> of TypeScript. What the migration bought was a
+                component model, not less code.
+              </p>
+              <p class="prose">
+                What it kept is the part I would defend. The vanilla build already had a two-layer
+                cache, and its header comment had already drawn the security boundary:
+              </p>
+              <div class="quote">架构:
+- L1: 内存缓存 (Map) - 最快,页面内有效
+- L2: IndexedDB - 持久化,页面刷新后仍有效
+
+安全边界:
+✅ 可缓存: 预约数据、统计数据、UI偏好
+❌ 不可缓存: 用户角色、权限、Token</div>
+              <p class="prose">
+                That design was framework-independent, so it moved across intact and gained a third
+                layer on the other side.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 04</span><b>Outcome</b></div>
+            <div>
+              <p class="prose">
+                191 files, a net reduction of roughly 2,000 lines, 23,685 lines of legacy JavaScript
+                retired. <strong>Not measurable, and I will not claim otherwise</strong> — no
+                before/after performance benchmark was captured. What can be stated is that reuse no
+                longer required copying, and old URLs still redirect rather than 404.
+              </p>
+              <ul class="takeaway">
+                <li>Starting with vanilla was not the mistake. Not stopping at the third copy-paste was.</li>
+                <li>When you hand-write what a standard tool already does, your stack choice has expired.</li>
+                <li>Half the value of a migration is deciding what <em>not</em> to bring.</li>
+                <li>Architecture judgement is separable from framework knowledge.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <!-- Challenge 2 -->
+    <div class="challenge">
+      <div class="challenge__no">02</div>
+      <h3 class="h3 challenge__title">A temporary permission loosening that scored itself</h3>
+      <p class="prose challenge__hook">
+        I widened the database rules to isolate a bug, and never put them back. A review a day
+        later put a number on it: 92 to 42.
+      </p>
+
+      <details class="disclose">
+        <summary>
+          <span class="disclose__label">Read the full write-up</span>
+          <span class="disclose__sign"></span>
+        </summary>
+        <div class="disclose__body">
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 01</span><b>Problem</b></div>
+            <div>
+              <p class="prose">
+                While debugging a stubborn permissions error, I widened the rules to rule out access
+                control as the cause. The catch-all was the obvious one:
+              </p>
+              <div class="quote">match /{document=**} {
+  allow read, write: if isAuthenticated();
+}</div>
+              <p class="prose">
+                Any signed-in account could read or write anything. In a clinic system that means
+                any patient login could reach every other patient&rsquo;s records. The debugging
+                worked. <strong>The rule never went back.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 02</span><b>What I tried</b></div>
+            <div>
+              <p class="prose">
+                The trail of candidate rule files shows the mistake. A permissive
+                &ldquo;temporary&rdquo; version and a properly scoped version were written
+                <em>in the same commit</em>. The correct approach was understood at the time; the
+                permissive one simply got deployed to unblock the work.
+              </p>
+              <p class="prose">
+                That is what makes it a process failure rather than a knowledge gap:
+              </p>
+              <div class="quote">Security Score: 42/100 (F) - Regression from 92/100 (A-)</div>
+              <p class="prose">
+                The 92 had been earned by three phases of hardening the week before. <strong>One
+                catch-all rule made all of it irrelevant</strong>, because every client-side check
+                sits above the layer that was now open.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 03</span><b>The fix</b></div>
+            <div>
+              <p class="prose">
+                The catch-all was not reverted but rewritten: explicit per-collection grants ending
+                in a default-deny. Role checks moved off the client into custom claims. The exposed
+                key was rotated.
+              </p>
+              <p class="prose">
+                The process change mattered more — security rules went into version control and into
+                a deploy script, so a rule change now travels the same review and rollback path as a
+                code change instead of being pasted into a console.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 04</span><b>Outcome</b></div>
+            <div>
+              <p class="prose">
+                Regression closed; permissions went from one catch-all line to 215 lines of explicit
+                authorisation. <strong>The post-fix score was never recorded</strong> — later audit
+                documents exist but none states a figure — so the honest claim is &ldquo;the
+                regression was fixed&rdquo;, not &ldquo;restored to 92&rdquo;.
+              </p>
+              <ul class="takeaway">
+                <li>A temporary permission change needs a scheduled reversal at the moment you make it.</li>
+                <li>Security is decided by the weakest layer, so the defence belongs closest to the data.</li>
+                <li>A review that produces a number moves people; &ldquo;feels a bit loose&rdquo; does not.</li>
+                <li>Treating security rules as code outlasts any single fix in that list.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<section class="band band--tight">
+  <div class="shell inset">
+    <div class="pagenav">
+      <a class="cta cta--b" href="openseason.html"><span class="cta__arrow">&larr;</span> OpenSeason</a>
+      <a class="cta cta--b" href="vantage.html">Vantage <span class="cta__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#about">About</a>
+        <a href="mailto:clarkswift1@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/case-study.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

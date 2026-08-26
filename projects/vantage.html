@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage — Clark Huang</title>
+<meta name="description" content="A personal stock research workbench that brings market, company, event and disclosure data into two decision lenses, with 15 serverless endpoints and provider fallbacks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="case-vantage">
+
+<header class="screen screen--page" id="top">
+  <div class="bloom-top"></div>
+  <div class="vignette"></div>
+
+  <nav class="nav nav--split">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--over-photo">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="pagehead">
+    <div class="pagehead__eyebrow eyebrow">Personal Product &middot; Product Design + Full-Stack</div>
+    <h1 class="pagehead__title">Vantage</h1>
+    <p class="pagehead__lede">A stock-research workbench that places eight sources beside one price context, then changes priority for Active and Long horizons.</p>
+  </div>
+</header>
+
+<section class="band band--tight case-summary-band">
+  <div class="shell inset">
+    <dl class="metabar">
+      <div><dt>Role</dt><dd>Product design + full-stack development</dd></div>
+      <div><dt>User</dt><dd>Personal tool, used by its creator</dd></div>
+      <div><dt>Status</dt><dd>In active use</dd></div>
+      <div><dt>Evidence</dt><dd>Self-use only; no investment outcome claims</dd></div>
+    </dl>
+    <nav class="case-nav" aria-label="Case study sections">
+      <a href="#product">Product</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#design">Design</a>
+      <a href="#challenges">Challenges</a>
+    </nav>
+  </div>
+</section>
+
+<main>
+
+<section class="band" id="product">
+  <div class="shell inset">
+    <div class="case-proof-head">
+      <h2>One symbol,<br>one research view.</h2>
+      <p>Eight upstream sources sit beside the same price context. Active and Long lenses reprioritize the interface for different horizons, while provider fallbacks keep partial evidence usable when a source is limited.</p>
+    </div>
+
+    <div class="case-gallery" id="screens" data-case-gallery tabindex="0" aria-label="Vantage decision states carousel">
+      <div class="case-gallery__viewport" aria-live="polite">
+        <figure class="case-gallery__slide" data-case-slide>
+          <div class="case-gallery__media"><img src="../assets/images/vantage/ui-insights.png" alt="Vantage demo Insights interface with watchlist, price chart, assessment and risk flags"></div>
+          <figcaption class="case-gallery__caption">Demo state · Insights — price action, technical context, sector standing and risk flags stay readable in one research workspace.</figcaption>
+        </figure>
+        <figure class="case-gallery__slide" data-case-slide hidden>
+          <div class="case-gallery__media"><img src="../assets/images/vantage/ui-long-position.png" alt="English Vantage Long-term Position interface with a conviction reading, long-range chart and sector ranking" loading="lazy"></div>
+          <figcaption class="case-gallery__caption">Long-term Position — the chart, metrics and decision panel reframe together for ownership rather than short-term execution.</figcaption>
+        </figure>
+        <figure class="case-gallery__slide" data-case-slide hidden>
+          <div class="case-gallery__media"><img src="../assets/images/vantage/ui-alerts.png" alt="English Vantage alert settings panel open beside the Long-term Position interface" loading="lazy"></div>
+          <figcaption class="case-gallery__caption">Alerts — a focused settings panel keeps price monitoring attached to the same stock and research context.</figcaption>
+        </figure>
+      </div>
+      <div class="case-gallery__toolbar">
+        <span class="case-gallery__count"><b data-case-current>01</b> / 03</span>
+        <div class="case-gallery__controls">
+          <button class="case-gallery__button" type="button" data-case-previous aria-label="Previous Vantage screen">&larr;</button>
+          <button class="case-gallery__button" type="button" data-case-next aria-label="Next Vantage screen">&rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="band" id="architecture">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Architecture</h2>
+      <span class="rule"></span>
+    </div>
+
+    <p class="prose">
+      A single-page React app with no database. Everything it knows is either fetched on demand
+      or recomputed at render time.
+    </p>
+
+    <details class="disclose" style="margin-top:var(--sp-lg)">
+      <summary>
+        <span class="disclose__label">Full stack breakdown</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <div class="spec">
+          <div class="spec__row">
+            <div class="spec__key">Frontend</div>
+            <div class="spec__val">React 18 with Vite, a single Zustand store with selective persistence, Tailwind over a CSS-variable design system, and Lightweight Charts. No router.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Analysis</div>
+            <div class="spec__val">About 2,900 lines of dependency-free analysis logic turn normalized market and company evidence into horizon-specific readings.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Backend</div>
+            <div class="spec__val">Fifteen endpoints on the serverless handler signature, fronting eight upstream sources across keyed providers and public data services. API keys live in the server environment only, while endpoint-level fallbacks choose the available source &mdash; the browser never calls a vendor directly.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Storage</div>
+            <div class="spec__val">No database. Server-side caching dies with the process; client-side there are three independent localStorage layers with their own versioning. Nothing computed is ever persisted.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Resilience</div>
+            <div class="spec__val">Abort timeouts, provider cooldowns after rate limiting, graceful degradation that returns an empty shape rather than an error, and headers naming the data source and the reason a series came back empty.</div>
+          </div>
+          <div class="spec__row">
+            <div class="spec__key">Demo mode</div>
+            <div class="spec__val">Three hand-authored scenarios that short-circuit the network entirely, with a test asserting each scenario&rsquo;s final candle close equals its quoted price.</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+
+<section class="band" id="design">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Design</h2>
+      <span class="rule"></span>
+    </div>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Most dips are just support</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The failure this was built against is a personal one: buying loud. Chasing a name while
+          the market is shouting about it, or — worse — taking a profit at a high and putting it
+          straight back in without stopping to look at the trend, the volume, or what the
+          disclosures show. The money handed back that way is usually money that had already been
+          made.
+        </p>
+        <p class="prose">
+          Buying the dip has stopped working as a strategy on its own. Most of what looks like a
+          dip is a support level inside a longer trend rather than a bottom, and the two look
+          identical on the chart — the difference only appears in the data around the price. So
+          that distinction is the entire job of this product: enough analysis, and enough history
+          behind the move, to say whether this particular dip is one worth taking.
+        </p>
+        <p class="prose">
+          One user, and that user is me. It has never been shown to anyone else, and nothing on
+          this page should be read as validation by someone who was not also the author.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Similarity without an outcome is astrology</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          Historical similarity is usually hand-waving. Here it is a defined operation: returns are
+          z-normalised, compared by cosine similarity over a sliding window, de-duplicated so
+          overlapping windows do not double count — and each match records what
+          <strong>actually happened afterwards</strong>. Similarity without forward return is
+          astrology; with it, it is a sample.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">A zone as wide as the data deserves</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          The entry zone is anchored at the 25th percentile of swing lows, shifted by a detected
+          trend regime, blended with recent lows — and then its <em>width</em> is clamped by a
+          multiple derived from volatility, so a calm high-priced name gets a tight zone and a
+          volatile one gets a wide one.
+        </p>
+      </div>
+    </details>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">Twelve negative articles, still only cautious</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          Sentiment is weighted by recency and relevance — a regulatory filing scores zero — then
+          deduplicated, and each publisher&rsquo;s contribution is <strong>capped</strong> so no
+          single prolific feed can manufacture a signal. A negative verdict additionally requires
+          two independent sources.
+        </p>
+        <p class="prose">
+          The current test suite asserts this design intent directly: twelve negative articles from
+          one publisher still resolve to merely cautious. It also covers deterministic demo cases,
+          source caps and deduplication, SEC separation, and weak-signal guards for insider and
+          congressional activity.
+        </p>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+
+<section class="band" id="details">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Selected Detail</h2>
+      <span class="rule"></span>
+    </div>
+
+    <details class="disclose">
+      <summary>
+        <span class="disclose__label">A scraper for a site with no API</span>
+        <span class="disclose__sign"></span>
+      </summary>
+      <div class="disclose__body">
+        <p class="prose">
+          Congressional trade disclosures come from a government portal with no API. The client
+          bootstraps a session, extracts a token, accepts the usage agreement, keeps a hand-rolled
+          cookie jar, then fetches filing pages five at a time and parses the HTML. On failure it
+          caches an empty result for an hour so a broken upstream is never hammered.
+        </p>
+      </div>
+    </details>
+  </div>
+</section>
+
+
+<section class="band" id="challenges">
+  <div class="shell inset">
+    <div class="band__head">
+      <h2 class="eyebrow">Challenges</h2>
+      <span class="rule"></span>
+    </div>
+
+    <p class="prose" style="margin-bottom:var(--sp-lg)">
+      <strong>A note on evidence.</strong> This repository has eleven commits, each a large
+      squashed batch, with a four-month gap in the middle. The outcomes below are well documented
+      but the deliberation is not — where I cannot show the thinking, I say so.
+    </p>
+
+    <!-- Challenge 1 -->
+    <div class="challenge">
+      <div class="challenge__no">01</div>
+      <h3 class="h3 challenge__title">Building too much, then cutting three times</h3>
+      <p class="prose challenge__hook">
+        A personal tool with no external pressure to choose will accumulate features forever.
+        It took three passes and about 7,500 deleted lines to get to one question.
+      </p>
+
+      <details class="disclose">
+        <summary>
+          <span class="disclose__label">Read the full write-up</span>
+          <span class="disclose__sign"></span>
+        </summary>
+        <div class="disclose__body">
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 01</span><b>Problem</b></div>
+            <div>
+              <p class="prose">
+                The project opened at about 5,300 lines and four weeks later took on another
+                7,161 — learning modules, a trade planner, a personality profiler, a glossary, a
+                news feed, price prediction.
+              </p>
+              <p class="prose">
+                Nothing was broken. It simply had no centre, because &ldquo;it is only for me&rdquo;
+                makes every addition feel free.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 02</span><b>What I tried</b></div>
+            <div>
+              <p class="prose">
+                <strong>First</strong>, a retreat from prediction to risk. The similar-patterns tab
+                became historical risk assessment — win rate, worst case, median return. The
+                algorithm survived; what changed was what it claimed.
+              </p>
+              <p class="prose">
+                <strong>Second</strong>, a redesign that deleted the non-core modules outright:
+                72 files, <strong>+10,608 / &minus;6,179</strong>.
+              </p>
+              <p class="prose">
+                Each of those failed for a reason that only shows up in use, not on a feature list.
+                <strong>Learning modules and the glossary</strong> — nobody opens a trading tool to
+                be taught what a 50-day moving average is, and someone who needs that explanation is
+                not about to act on it either. <strong>The personality profiler</strong> — knowing
+                your own temperament does not tell you whether this dip is real, because a US-market
+                dip turns on the index, on breaking news and on earnings far more than on the
+                disposition of the person watching it. <strong>The trade planner</strong> — a buy
+                sequence takes minutes to write and the setup can be gone in seconds; putting one on
+                screen implies a durability the market does not offer, and the call belongs to
+                whoever is carrying the risk. <strong>The general market-news feed</strong> —
+                market-wide headlines are browsing material. What replaced it is per-ticker news
+                read alongside SEC filings, which is the only news that bears on one specific
+                decision.
+              </p>
+              <p class="prose">
+                <strong>Third</strong>, another subtraction pass six weeks later, listing more
+                removals than additions — a strategy radar, a scale-in ladder, a heatmap, a snapshot
+                card, an entire evidence-snapshot subsystem. The scale-in ladder had been
+                <em>added twenty-four days earlier</em>. One round of focusing had not been enough.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 03</span><b>The fix</b></div>
+            <div>
+              <p class="prose">
+                The product definition collapsed to a single sentence. Everything retained has to
+                feed that one call — technicals, drawdowns, fundamentals, insider activity, macro
+                and news are inputs to one verdict rather than six separate tabs.
+              </p>
+              <p class="prose">
+                Architecturally that became a layered decision that two independent veto stages can
+                downgrade. The output is not a number but a ranked evidence list plus a short set of
+                conditions that would have to change.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 04</span><b>Outcome</b></div>
+            <div>
+              <p class="prose">
+                About <strong>7,500 lines removed</strong>. <strong>Not quantified</strong>: there
+                is no usage data behind any of it — the user base is one person. It also had a side
+                effect worth admitting: the documentation kept describing deleted components, so it
+                advertised a product that no longer existed. That has since been rewritten.
+              </p>
+              <ul class="takeaway">
+                <li>Personal tools lose focus fastest, because nothing external forces a trade-off.</li>
+                <li>One focusing pass is rarely enough.</li>
+                <li>Deleting code means deleting the documentation that describes it.</li>
+                <li>Narrowing what a feature <em>claims</em> can beat improving what it computes.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <!-- Challenge 2 -->
+    <div class="challenge">
+      <div class="challenge__no">02</div>
+      <h3 class="h3 challenge__title">A working prototype that never became a feature</h3>
+      <p class="prose challenge__hook">
+        The rule engine, the modal, the translations and the trigger all exist. None of them was
+        ever connected. I now treat it as an abandoned experiment, not a launch decision recorded
+        at the time.
+      </p>
+
+      <details class="disclose">
+        <summary>
+          <span class="disclose__label">Read the full write-up</span>
+          <span class="disclose__sign"></span>
+        </summary>
+        <div class="disclose__body">
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 01</span><b>Problem</b></div>
+            <div>
+              <p class="prose">
+                Buying into a fall is where people talk themselves into things. So I built a
+                devil&rsquo;s advocate: before committing, generate the strongest arguments
+                <em>against</em> the trade — twelve rules across three severity tiers.
+              </p>
+              <p class="prose">
+                The trigger is the sharp part: it fires when historical matches are
+                <em>highly similar but historically unprofitable</em> — precisely the setup where
+                familiarity is most likely to be mistaken for edge.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 02</span><b>What I tried</b></div>
+            <div>
+              <p class="prose">
+                The rule engine works. The modal exists, with focus trapping and translations in
+                both languages. The trigger fires and writes to the store.
+              </p>
+              <p class="prose">
+                <strong>None of the four pieces was ever connected to the others.</strong> I checked
+                this across every commit rather than assuming: the rule engine has never been called
+                from anywhere. It was not broken by a later refactor — it was never wired at all.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 03</span><b>What I would do now</b></div>
+            <div>
+              <p class="prose">
+                My later judgement, informed by day-trading but not documented in a contemporaneous
+                commit, is that the feature does not survive its intended execution timing.
+              </p>
+              <p class="prose">
+                During fast intraday moves, price can shift while a user reads the objections,
+                checks the original entry, opens a broker, finds the ticker and places an order.
+                The modal adds delay precisely where its advice is most time-sensitive.
+              </p>
+              <p class="prose">
+                For a long-horizon holder it is unnecessary anyway — the fundamentals and drawdown
+                history already on the page answer the same question without an interstitial.
+                Neither audience is served.
+              </p>
+              <p class="prose">
+                This is retrospective reasoning, not proof that the unfinished integration was an
+                intentional product decision when the code was written.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__key"><span class="eyebrow">Step 04</span><b>Outcome</b></div>
+            <div>
+              <p class="prose">
+                The experiment did not become part of the working flow. I present it as an abandoned
+                prototype and keep the useful lesson separate from claims about why it stopped.
+              </p>
+              <p class="prose">
+                It is also consistent with where the product went. The last pass removed the
+                duplicate risk cards, the snapshot subsystem, and the numeric composite score —
+                every one of them a layer between the user and the call. A blocking modal is that
+                same shape.
+              </p>
+              <ul class="takeaway">
+                <li>A feature can be correct in isolation and still fail against the timing of its actual use.</li>
+                <li>A later explanation should not be presented as a decision recorded at the time.</li>
+                <li>Abandoned code is evidence of exploration, not evidence of a deliberate launch choice.</li>
+                <li>Precision should match input quality.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<section class="band band--tight">
+  <div class="shell inset">
+    <div class="pagenav">
+      <a class="cta cta--b" href="dental-clinic.html"><span class="cta__arrow">&larr;</span> Dental Clinic System</a>
+      <a class="cta cta--b" href="../index.html#work">All work <span class="cta__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#about">About</a>
+        <a href="mailto:clarkswift1@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/case-study.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

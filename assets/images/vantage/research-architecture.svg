@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Vantage research architecture</title>
+  <desc id="desc">Eight market and disclosure sources pass through fifteen serverless endpoints, fallback and normalization, then feed Active and Long research lenses.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/>
+    </marker>
+    <style>
+      .bg{fill:#06070d}.panel{fill:#0b0c14;stroke:#282938;stroke-width:2}.panel-accent{fill:#0d0d18;stroke:#a855f7;stroke-width:2}.hair{fill:none;stroke:#a855f7;stroke-width:2;marker-end:url(#arrow)}
+      .label{fill:#8b8da1;font:500 20px Jost,Arial,sans-serif;letter-spacing:4px}.title{fill:#f7f7fb;font:500 42px Jost,Arial,sans-serif}.body{fill:#c5c6d1;font:400 24px Jost,Arial,sans-serif}.small{fill:#8b8da1;font:400 20px Jost,Arial,sans-serif}.accent{fill:#c084fc;font:500 24px Jost,Arial,sans-serif}.up{fill:#34f5b8;font:500 22px Jost,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="label" x="86" y="78">VANTAGE RESEARCH ARCHITECTURE</text>
+  <text class="title" x="86" y="138">One symbol. Many sources. Two decision lenses.</text>
+
+  <text class="label" x="86" y="220">SOURCES</text>
+  <g transform="translate(86 250)">
+    <rect class="panel" width="315" height="64"/><text class="body" x="24" y="41">Finnhub</text>
+    <rect class="panel" y="78" width="315" height="64"/><text class="body" x="24" y="119">TwelveData</text>
+    <rect class="panel" y="156" width="315" height="64"/><text class="body" x="24" y="197">SEC EDGAR</text>
+    <rect class="panel" y="234" width="315" height="64"/><text class="body" x="24" y="275">FMP</text>
+    <rect class="panel" y="312" width="315" height="64"/><text class="body" x="24" y="353">Senate eFD</text>
+    <rect class="panel" y="390" width="315" height="64"/><text class="body" x="24" y="431">Yahoo Finance</text>
+    <rect class="panel" y="468" width="315" height="64"/><text class="body" x="24" y="509">Marketaux</text>
+    <rect class="panel" y="546" width="315" height="64"/><text class="body" x="24" y="587">Massive</text>
+  </g>
+
+  <text class="label" x="500" y="220">DATA LAYER</text>
+  <rect class="panel-accent" x="500" y="250" width="405" height="178"/>
+  <text class="accent" x="536" y="300">15 serverless endpoints</text>
+  <text class="body" x="536" y="348">Quotes · candles · filings</text>
+  <text class="body" x="536" y="386">news · events · sector data</text>
+  <rect class="panel" x="500" y="466" width="405" height="178"/>
+  <text class="accent" x="536" y="516">Fallback + normalization</text>
+  <text class="body" x="536" y="564">Provider cooldowns and TTL cache</text>
+  <text class="body" x="536" y="602">Visible source and empty-state reasons</text>
+  <rect class="panel" x="500" y="682" width="405" height="110"/>
+  <text class="accent" x="536" y="730">Evidence engine</text>
+  <text class="small" x="536" y="766">Named stances, vetoes, no fake precision</text>
+
+  <path class="hair" d="M 425 555 C 460 555 465 338 492 338"/>
+  <path class="hair" d="M 703 430 L 703 457"/>
+  <path class="hair" d="M 703 646 L 703 673"/>
+  <path class="hair" d="M 915 736 C 950 736 955 420 984 420"/>
+
+  <text class="label" x="995" y="220">RESEARCH LENSES</text>
+  <rect class="panel-accent" x="995" y="250" width="515" height="250"/>
+  <text class="title" x="1035" y="310">Active</text>
+  <text class="body" x="1035" y="362">Price action · volatility · entry timing</text>
+  <text class="body" x="1035" y="404">earnings · news · macro event risk</text>
+  <text class="up" x="1035" y="460">Act only when the evidence aligns.</text>
+
+  <rect class="panel-accent" x="995" y="542" width="515" height="250"/>
+  <text class="title" x="1035" y="602">Long</text>
+  <text class="body" x="1035" y="654">Company quality · 52-week position</text>
+  <text class="body" x="1035" y="696">valuation · sector strength · filings</text>
+  <text class="up" x="1035" y="752">Reframe the same stock for ownership.</text>
+</svg>

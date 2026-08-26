@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WSC Auto &mdash; Clark Huang</title>
+<meta name="description" content="A live commercial design-to-code case study: bilingual product strategy, React implementation, 50 technical repair cases, progressive enhancement and production QA for WSC Auto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<header class="screen screen--page" id="top">
+  <div class="bloom-top"></div>
+  <div class="vignette"></div>
+  <nav class="nav nav--split">
+    <a class="wordmark" href="../index.html">Clark Huang</a>
+    <div class="nav-links nav-links--over-photo">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+  <div class="pagehead">
+    <div class="pagehead__eyebrow eyebrow">Live in Production &middot; Commercial Client</div>
+    <h1 class="pagehead__title">WSC Auto</h1>
+    <p class="pagehead__lede">Designed, built, tested and maintained in production for an independent ultra-luxury European vehicle workshop.</p>
+  </div>
+</header>
+
+<section class="band band--tight case-summary-band">
+  <div class="shell inset">
+    <dl class="metabar">
+      <div><dt>Role</dt><dd>Product design + full-stack development</dd></div>
+      <div><dt>Client</dt><dd>Independent European vehicle specialist</dd></div>
+      <div><dt>Delivery</dt><dd>React SPA &middot; EN / 中文 &middot; Vercel</dd></div>
+      <div><dt>Status</dt><dd>Live and maintained in production</dd></div>
+    </dl>
+    <nav class="case-nav" aria-label="Case study sections">
+      <a href="#brief">Brief</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#outcome">Outcome</a>
+      <a href="https://www.wsc-auto.com/" target="_blank" rel="noreferrer">Live site &nearr;</a>
+    </nav>
+  </div>
+</section>
+
+<main>
+  <section class="band" id="brief">
+    <div class="shell inset">
+      <div class="case-lead">
+        <h2 class="case-lead__statement">Give a Maybach owner a reason to trust an independent workshop over the dealer.</h2>
+        <div class="case-lead__body">
+          <p class="prose">The credibility problem could not be solved with luxury language alone. I designed the site around proof: real repair depth, marque-specific knowledge, bilingual access and a technical archive that search engines and customers could both understand.</p>
+          <p class="prose">I owned the work from information architecture and visual direction through React implementation, content systems, testing, deployment and production maintenance.</p>
+        </div>
+      </div>
+      <dl class="case-facts">
+        <div class="case-fact"><dt>Project vision</dt><dd>A workshop site that earns trust through technical specificity rather than dealer-like claims.</dd></div>
+        <div class="case-fact"><dt>Primary users</dt><dd>Owners of European luxury and performance vehicles, including bilingual customers looking for specialist diagnosis and repair.</dd></div>
+        <div class="case-fact"><dt>My scope</dt><dd>Product definition, sitemap, interface system, responsive behavior, React architecture, bilingual content, booking integration, SEO, testing and deployment.</dd></div>
+        <div class="case-fact"><dt>Constraint</dt><dd>The workshop, equipment and photography were still arriving in stages. The site had to launch as a finished product before the image library was complete.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" id="decisions">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Product &amp; design decisions</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-xl)">The strongest decisions were about<br>what the client should not have to maintain.</h2>
+      <div class="case-challenges">
+        <article class="case-challenge">
+          <h3>The first design review was a running build.</h3>
+          <div class="case-challenge__body">
+            <span class="case-response">Decision</span>
+            <p>There was no visual brief, so I began with a FigJam sitemap and a working React structure. The visual direction came from the client&rsquo;s trade: Mercedes black, white, grey and blue, treated as familiar workshop language rather than borrowed prestige.</p>
+            <p>The client reviewed and approved an operating site, not a static mockup. Later, their request for a dedicated Sprinter page corrected the original passenger-car sitemap and made the business model more accurate.</p>
+          </div>
+        </article>
+
+        <article class="case-challenge">
+          <h3>The backend decision was deliberately deferred.</h3>
+          <div class="case-challenge__body">
+            <span class="case-response">Decision</span>
+            <p>The public site was the only confirmed priority. Future locations, staff workflows and a possible parts business were still undefined, so building an internal system would have locked in assumptions too early.</p>
+            <p>I connected booking to the client&rsquo;s Squarespace account instead. It solved the immediate need while keeping the path open for a custom multi-location system later.</p>
+          </div>
+        </article>
+
+        <article class="case-challenge">
+          <h3>Desktop browsing and mobile navigation were different jobs.</h3>
+          <div class="case-challenge__body">
+            <span class="case-response">Decision</span>
+            <p>On-site staff feedback showed that phone visitors could not tell where they were or reach the next destination quickly. Desktop visitors could browse; phone visitors usually wanted one answer.</p>
+            <p>The mobile version therefore received explicit navigation and a hamburger menu. It was not added because it was conventional, but because the mobile task was orientation rather than editorial browsing.</p>
+          </div>
+        </article>
+
+        <article class="case-challenge">
+          <h3>The site had to feel complete before its photography was complete.</h3>
+          <div class="case-challenge__body">
+            <span class="case-response">Decision</span>
+            <p>Interior photography depended on the workshop fit-out. Vehicle photography depended on a specific car arriving and its owner agreeing to a shoot. Neither could define the launch schedule.</p>
+            <p>I made the technical archive carry the visual and credibility load instead: 50 repair cases, marque-specific narratives and 49 hand-drawn schematics that remain meaningful even when a case has no ideal photograph.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="architecture">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Production architecture</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">Static at runtime.<br>Heavy in authored content.</h2>
+      <p class="prose">React was chosen before the first screen because the staged commercial build needed reusable page and content modules. The final production system stays deliberately static: no database, no custom server and no CMS.</p>
+
+      <div class="spec" style="margin-top:var(--sp-lg)">
+        <div class="spec__row"><div class="spec__key">Frontend</div><div class="spec__val">React 18, Vite, React Router and CSS Modules. Route-level code splitting keeps page code and the Three.js navigator off the critical path until needed.</div></div>
+        <div class="spec__row"><div class="spec__key">Content</div><div class="spec__val">Static ES modules organize 50 repair cases across 16 technical categories and 17 marques. No database or CMS is required to serve them.</div></div>
+        <div class="spec__row"><div class="spec__key">Languages</div><div class="spec__val">A small custom language context serves English and Chinese. CI checks key parity and prevents Chinese copy from leaking into English fields.</div></div>
+        <div class="spec__row"><div class="spec__key">Booking</div><div class="spec__val">Squarespace booking opens through a validated external link, keeping account ownership and recurring cost with the client.</div></div>
+        <div class="spec__row"><div class="spec__key">Progressive enhancement</div><div class="spec__val">The orbiting brand navigator loads only on a capable desktop viewport without reduced motion. Every failed gate produces a complete keyboard-accessible list instead.</div></div>
+        <div class="spec__row"><div class="spec__key">Delivery</div><div class="spec__val">Vercel with security headers. CI gates language parity, sitemap coverage, build, unit tests and Playwright checks on desktop and mobile.</div></div>
+        <div class="spec__row"><div class="spec__key">SEO guardrail</div><div class="spec__val">A case opened under the wrong marque can render for recovery, but it is removed from the index and emits no structured data, preventing duplicate-content combinations.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="evidence">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Live product evidence</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">The design is visible.<br>The system behind it is measurable.</h2>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Content system</span>
+        <span class="evidence-status__value">50 structured repair cases and 49 authored schematics turn workshop expertise into a browsable technical archive.</span>
+      </div>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Production quality</span>
+        <span class="evidence-status__value">Approximately 61 unit and component tests, plus Playwright coverage and content-specific CI checks.</span>
+      </div>
+      <div class="evidence-status">
+        <span class="evidence-status__label">Status</span>
+        <span class="evidence-status__value">The commercial site is live, bilingual and maintained in production. No traffic or conversion lift is claimed without a controlled comparison.</span>
+      </div>
+
+      <div class="case-gallery" data-case-gallery tabindex="0" aria-label="WSC Auto production interface carousel">
+        <div class="case-gallery__viewport" aria-live="polite">
+          <figure class="case-gallery__slide" data-case-slide>
+            <div class="case-gallery__media"><img src="../assets/images/wsc/home-desktop.png" alt="WSC Auto production homepage on desktop with a Mercedes cover image"></div>
+            <figcaption class="case-gallery__caption">Production homepage — an editorial cover system introduces the workshop without relying on generic service cards.</figcaption>
+          </figure>
+          <figure class="case-gallery__slide" data-case-slide hidden>
+            <div class="case-gallery__media"><img src="../assets/images/wsc/brands-desktop.png" alt="WSC Auto production brand navigator featuring a Ferrari"></div>
+            <figcaption class="case-gallery__caption">Brand navigator — the expressive desktop experience progressively falls back to a direct list when motion, viewport or WebGL support says it should.</figcaption>
+          </figure>
+          <figure class="case-gallery__slide" data-case-slide hidden>
+            <div class="case-gallery__media"><img src="../assets/images/wsc/case-study-desktop.png" alt="WSC Auto Maybach repair case page with vehicle data and technical navigation"></div>
+            <figcaption class="case-gallery__caption">Repair evidence — each case combines vehicle data, diagnosis, repair process, outcome and a technical telemetry layout.</figcaption>
+          </figure>
+          <figure class="case-gallery__slide" data-case-slide hidden>
+            <div class="case-gallery__media"><img src="../assets/images/wsc/home-mobile.png" alt="WSC Auto production homepage on a phone with explicit language and menu controls"></div>
+            <figcaption class="case-gallery__caption">Mobile production state — navigation and language controls stay explicit while the cover composition adapts to the narrow viewport.</figcaption>
+          </figure>
+        </div>
+        <div class="case-gallery__toolbar">
+          <span class="case-gallery__count"><b data-case-current>01</b> / 04</span>
+          <div class="case-gallery__controls">
+            <button class="case-gallery__button" type="button" data-case-previous aria-label="Previous WSC Auto screen">&larr;</button>
+            <button class="case-gallery__button" type="button" data-case-next aria-label="Next WSC Auto screen">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="engineering">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Engineering investigations</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-xl)">Two bugs that looked small<br>until the baseline was questioned.</h2>
+      <div class="case-challenges">
+        <article class="case-challenge">
+          <h3>A white line one physical pixel wide.</h3>
+          <div class="case-challenge__body">
+            <div class="evidence-status"><span class="evidence-status__label">Problem</span><span class="evidence-status__value">A service card flashed a one-device-pixel white line during hover, only at fractional display scaling and only mid-animation.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Method</span><span class="evidence-status__value">A Playwright probe sampled the card edge across hundreds of frames and reran controlled CSS variants at two device-pixel ratios.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Fix</span><span class="evidence-status__value">The gradient moved into the transforming image layer so both shared the same rasterized edge; the details reveal timing and dark fallback were corrected.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Proof</span><span class="evidence-status__value">Zero bright pixels across 800+ sampled frames. The probe remains in the repository as a regression tool.</span></div>
+          </div>
+        </article>
+
+        <article class="case-challenge">
+          <h3>CI was green and checking the wrong thing.</h3>
+          <div class="case-challenge__body">
+            <div class="evidence-status"><span class="evidence-status__label">Problem</span><span class="evidence-status__value">Two real landing pages were absent from the sitemap while the sitemap check passed every build.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Cause</span><span class="evidence-status__value">The check compared the committed sitemap with the generator&rsquo;s own output. A route unknown to the generator was missing from both sides, so both sides still matched.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Fix</span><span class="evidence-status__value">The coverage baseline moved to the router. Static indexable routes are extracted, explicit exclusions are subtracted and any missing URL fails the build by name.</span></div>
+            <div class="evidence-status"><span class="evidence-status__label">Proof</span><span class="evidence-status__value">The blind spot was manufactured deliberately to confirm the new guard fails. No traffic lift is claimed without route-level before-and-after evidence.</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="outcome">
+    <div class="shell inset">
+      <div class="band__head"><span class="eyebrow">Outcome</span><span class="rule"></span></div>
+      <h2 class="h2" style="margin-bottom:var(--sp-lg)">One accountable owner<br>from product decision to production guardrail.</h2>
+      <ul class="takeaway">
+        <li>The client received a live bilingual site without inheriting a custom backend or CMS they did not need.</li>
+        <li>Commercial constraints shaped the architecture, responsive behavior and content strategy—not just the visual layer.</li>
+        <li>Production maintenance includes the invisible work: language parity, canonical URLs, fallbacks, regression probes and route coverage.</li>
+      </ul>
+      <div class="case-close">
+        <div>
+          <h2>Need one person to make the product decision and carry it into production?</h2>
+          <p>I work across research, interface design, implementation and delivery, with the project boundary made explicit from the start.</p>
+        </div>
+        <a class="cta cta--a" href="mailto:clarkswift1@gmail.com?subject=Freelance%20project%20inquiry">Discuss a project <span class="cta__arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="band band--tight">
+  <div class="shell inset">
+    <div class="pagenav">
+      <a class="cta cta--b" href="../index.html#work"><span class="cta__arrow">&larr;</span> All work</a>
+      <a class="cta cta--b" href="openseason.html">OpenSeason <span class="cta__arrow">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="shell inset">
+    <div class="footer__row">
+      <span class="footer__note">&copy; 2026 Clark Huang</span>
+      <div class="footer__links">
+        <a href="../index.html#work">Work</a><a href="../index.html#about">About</a><a href="mailto:clarkswift1@gmail.com">Email</a><a href="https://www.linkedin.com/in/he-clark-h-b390a212a/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/case-study.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js?token=0d2039a7-a01d-406b-a07c-1f71fe2eca03"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

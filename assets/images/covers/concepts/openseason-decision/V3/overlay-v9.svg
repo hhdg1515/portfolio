@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1122" height="1402" viewBox="0 0 1122 1402">
+  <defs>
+    <pattern id="fire-hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(34)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#fff" stroke-opacity=".58" stroke-width="2" />
+    </pattern>
+    <marker id="route-arrow" viewBox="0 0 18 18" refX="13" refY="9" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 1 1 L 17 9 L 1 17 L 5.5 9 Z" fill="#fff" />
+    </marker>
+  </defs>
+
+  <!-- Projected route: subtle dark keyline followed by a clean white line. -->
+  <path d="M 449 1124
+           C 429 1062 429 986 496 914
+           C 558 847 674 870 754 822
+           C 813 786 816 733 764 686
+           C 724 650 680 621 620 600
+           C 562 580 510 551 455 521
+           C 398 490 340 469 284 444
+           C 233 421 190 400 162 377"
+        fill="none" stroke="#101814" stroke-opacity=".34" stroke-width="11"
+        stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 449 1124
+           C 429 1062 429 986 496 914
+           C 558 847 674 870 754 822
+           C 813 786 816 733 764 686
+           C 724 650 680 621 620 600
+           C 562 580 510 551 455 521
+           C 398 490 340 469 284 444
+           C 233 421 190 400 162 377"
+        fill="none" stroke="#fff" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round" marker-end="url(#route-arrow)" />
+
+  <!-- Bottom current position and the user-annotated route point. -->
+  <circle cx="449" cy="1124" r="13" fill="#fff" stroke="#101814" stroke-opacity=".28" stroke-width="3" />
+  <circle cx="764" cy="686" r="13" fill="#fff" stroke="#101814" stroke-opacity=".28" stroke-width="3" />
+
+  <!-- Mapped fire area is separated from the visible fire on the lower-right hillside. -->
+  <path d="M 744 365
+           C 794 337 875 347 921 371
+           C 971 397 1018 420 1019 466
+           C 1020 510 990 548 941 560
+           C 891 573 835 548 792 524
+           C 748 499 713 468 716 423
+           C 718 396 726 378 744 365 Z"
+        fill="url(#fire-hatch)" stroke="#fff" stroke-opacity=".72" stroke-width="2.5"
+        stroke-dasharray="8 6" />
+  <path d="M 868 472
+           C 850 457 853 438 867 424
+           C 871 440 880 442 881 426
+           C 899 446 903 463 894 476
+           C 888 485 875 485 868 472 Z
+           M 875 470
+           C 870 463 873 455 879 449
+           C 880 458 887 459 888 453
+           C 894 463 891 475 883 478
+           C 880 479 877 476 875 470 Z"
+        fill="#df5d2e" fill-rule="evenodd" />
+
+  <!-- Information card, baked into the image but kept as deterministic vector artwork. -->
+  <rect x="118" y="720" width="366" height="158" fill="#f2eee5" />
+  <text x="148" y="762" fill="#d8582b" font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="700" letter-spacing="1.1">WATCH</text>
+  <text x="148" y="810" fill="#232724" font-family="Arial, Helvetica, sans-serif"
+        font-size="29" font-weight="700">Wind + route access</text>
+  <text x="148" y="850" fill="#5d625f" font-family="Arial, Helvetica, sans-serif"
+        font-size="19" font-weight="400">Recheck before the pass.</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Vantage Senate disclosure ingestion</title>
+  <desc id="desc">A diagram showing how Vantage collects Senate trade disclosures from a government portal with no API and turns them into cautious risk evidence.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#a855f7"/>
+    </marker>
+    <style>
+      .bg{fill:#06070d}.box{fill:#0b0c14;stroke:#2a2b39;stroke-width:2}.accentbox{fill:#0d0d18;stroke:#a855f7;stroke-width:2}.line{fill:none;stroke:#a855f7;stroke-width:2;marker-end:url(#arrow)}
+      .label{fill:#8b8da1;font:500 20px Jost,Arial,sans-serif;letter-spacing:4px}.title{fill:#f7f7fb;font:500 42px Jost,Arial,sans-serif}.step{fill:#c084fc;font:500 19px Jost,Arial,sans-serif;letter-spacing:2px}.body{fill:#d2d3dc;font:400 25px Jost,Arial,sans-serif}.small{fill:#9294a6;font:400 20px Jost,Arial,sans-serif}.warn{fill:#ffbe55;font:500 21px Jost,Arial,sans-serif}.up{fill:#34f5b8;font:500 22px Jost,Arial,sans-serif}
+    </style>
+  </defs>
+  <rect class="bg" width="1600" height="900"/>
+  <text class="label" x="86" y="78">ENGINEERING DETAIL · SENATE eFD</text>
+  <text class="title" x="86" y="138">Turning a no-API disclosure portal into cautious evidence.</text>
+
+  <rect class="accentbox" x="86" y="214" width="1428" height="112"/>
+  <text class="warn" x="122" y="260">CONSTRAINT</text>
+  <text class="body" x="122" y="300">No public API · session agreement required · disclosures may lag the trade by up to 45 days</text>
+
+  <g transform="translate(86 390)">
+    <rect class="box" width="240" height="178"/>
+    <text class="step" x="26" y="42">01 · SESSION</text>
+    <text class="body" x="26" y="88">Open portal</text>
+    <text class="small" x="26" y="126">Start a cookie jar</text>
+    <text class="small" x="26" y="154">Extract request token</text>
+
+    <rect class="box" x="292" width="240" height="178"/>
+    <text class="step" x="318" y="42">02 · ACCESS</text>
+    <text class="body" x="318" y="88">Accept terms</text>
+    <text class="small" x="318" y="126">Preserve session state</text>
+    <text class="small" x="318" y="154">Submit symbol search</text>
+
+    <rect class="box" x="584" width="240" height="178"/>
+    <text class="step" x="610" y="42">03 · FETCH</text>
+    <text class="body" x="610" y="88">Page filings</text>
+    <text class="small" x="610" y="126">Five detail pages</text>
+    <text class="small" x="610" y="154">per batch</text>
+
+    <rect class="box" x="876" width="240" height="178"/>
+    <text class="step" x="902" y="42">04 · PARSE</text>
+    <text class="body" x="902" y="88">Normalize HTML</text>
+    <text class="small" x="902" y="126">Ticker · buy / sell</text>
+    <text class="small" x="902" y="154">date · value range</text>
+
+    <rect class="accentbox" x="1168" width="260" height="178"/>
+    <text class="step" x="1194" y="42">05 · EVIDENCE</text>
+    <text class="body" x="1194" y="88">Risk context</text>
+    <text class="small" x="1194" y="126">Counts and direction</text>
+    <text class="small" x="1194" y="154">Never a trade signal</text>
+
+    <path class="line" d="M246 89H282"/>
+    <path class="line" d="M538 89H574"/>
+    <path class="line" d="M830 89H866"/>
+    <path class="line" d="M1122 89H1158"/>
+  </g>
+
+  <rect class="box" x="86" y="642" width="682" height="132"/>
+  <text class="up" x="122" y="690">NORMAL PATH</text>
+  <text class="body" x="122" y="730">Rebuild the recent disclosure dataset at most once per day.</text>
+
+  <rect class="box" x="832" y="642" width="682" height="132"/>
+  <text class="warn" x="868" y="690">FAILURE PATH</text>
+  <text class="body" x="868" y="730">Cache an empty result for one hour instead of hammering the portal.</text>
+
+  <text class="small" x="86" y="842">The result is deliberately weak evidence: Senate only, delayed disclosure, and no claim of predictive value.</text>
+</svg>

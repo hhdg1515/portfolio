@@ -1,0 +1,13 @@
+{
+  "name": "clark-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portfolio — static HTML/CSS, no build step. Design system per design-system.md (prototype 3a/3b).",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "test": "npm run check",
+    "dev": "node server.mjs",
+    "start": "node server.mjs"
+  }
+}
