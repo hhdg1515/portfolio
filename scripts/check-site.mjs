@@ -55,6 +55,12 @@ for (const file of htmlFiles) {
     if (!await exists(path)) errors.push(`${name}: missing local target ${target}`);
   }
 
+  // 本地工具会往页面尾部注入 live-reload 脚本，每次运行都重新写入。
+  // 带上线就是每个访客一个失败请求，外加把本地 token 印在公开 HTML 里。
+  if (/localhost:|127\.0\.0\.1|impeccable-live/.test(source)) {
+    errors.push(`${name}: local dev injection must be stripped before publishing`);
+  }
+
   // 分享卡片 —— 只检查对外发布的页面，卡片版面源文件自身除外
   if (!name.startsWith(`scripts${sep}`)) {
     const meta = (property) =>
