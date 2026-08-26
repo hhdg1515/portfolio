@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG card source — 1200x630</title>
+<!-- 分享卡片的版面来源。以 1200x630 截图，输出 assets/images/og-cover.jpg。
+     改了定位文案或首页主推项目，就重新出图。
+     视觉语言与首屏同源：同一张 bloom 素材、同一组 token、同样的直角与零阴影。
+     三张封面刻意下溢出血 —— 卡片要读作"还有更多"，而不是三张缩略图。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page:      #060605;
+    --w250:      #fafafa;
+    --w228-68:   rgba(228,228,230,0.68);
+    --w228-55:   rgba(228,228,230,0.55);
+    --hairline:  rgba(255,255,255,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1200px; height: 630px;
+    background: var(--page);
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 背景 —— 与首屏 .bloom-top / .vignette 同构。
+     遮罩拉到 100% 且不另设 opacity，避免在遮罩末端出现横向接缝。 */
+  .bloom-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 340px;
+    background: url('../assets/images/bloom-top.png') center top / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.85) 0%, transparent 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.85) 0%, transparent 100%);
+  }
+  .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 95% 80% at 50% 34%,
+                rgba(6,6,5,0) 32%, rgba(6,6,5,0.58) 100%);
+  }
+
+  .card { position: relative; padding: 62px 0 0; text-align: center; }
+
+  h1 {
+    font-weight: 200;
+    font-size: 58px;
+    letter-spacing: 12px;
+    line-height: 1.1;
+    color: var(--w250);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.7);
+    text-indent: 12px;                        /* 字距加在右侧，补回一半居中偏移 */
+  }
+
+  h2 {
+    font-weight: 200;
+    font-size: 21px;
+    letter-spacing: .6px;
+    color: var(--w228-68);
+    margin-top: 16px;
+  }
+
+  .gallery {
+    position: absolute;
+    left: 0; right: 0; top: 250px;
+    display: flex; justify-content: center; gap: 32px;
+  }
+  .gallery figure { width: 288px; height: 380px; overflow: hidden; position: relative; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 底缘融入页面底色 —— 出血处不留硬边 */
+  .gallery figure::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(6,6,5,0) 58%, rgba(6,6,5,0.92) 100%);
+  }
+</style>
+</head>
+<body>
+
+<div class="bloom-top"></div>
+<div class="vignette"></div>
+
+<div class="card">
+  <h1>Clark Huang</h1>
+  <h2>Freelance product design and full-stack development</h2>
+</div>
+
+<div class="gallery">
+  <figure><img src="../assets/images/covers/concepts/wsc-auto-primary-v1-4x5.webp" alt="WSC Auto cover"></figure>
+  <figure><img src="../assets/images/covers/concepts/openseason-primary-v1.webp" alt="OpenSeason cover"></figure>
+  <figure><img src="../assets/images/covers/concepts/ai-asset-library-one-recording-v2-4x5.webp" alt="Asset Library UX cover"></figure>
+</div>
+
+</body>
+</html>

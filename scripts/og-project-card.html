@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG project card source — 1200x630</title>
+<!-- 案例页分享卡片的版面来源。由 scripts/build-og.mjs 用查询参数驱动：
+     ?title=&eyebrow=&cover=
+     左文右图：封面向右出血，读作"这是一件作品"而不是一张配图。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page:      #060605;
+    --w250:      #fafafa;
+    --w228-68:   rgba(228,228,230,0.68);
+    --w228-55:   rgba(228,228,230,0.55);
+    --hairline:  rgba(255,255,255,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1200px; height: 630px;
+    background: var(--page);
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bloom-top {
+    position: absolute; top: 0; left: 0; right: 0; height: 300px;
+    background: url('../assets/images/bloom-top.png') center top / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,.7) 0%, transparent 100%);
+  }
+
+  /* 右侧封面 —— 出血至右缘，左缘用渐变融进底色 */
+  .cover {
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 680px;
+    overflow: hidden;
+  }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 过渡带要够宽：封面本身是深色时，窄渐变会在交界处留下一条可见竖边 */
+  .cover::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right,
+                var(--page) 0%,
+                rgba(6,6,5,0.92) 12%,
+                rgba(6,6,5,0.62) 30%,
+                rgba(6,6,5,0.24) 50%,
+                rgba(6,6,5,0) 68%);
+  }
+
+  .copy {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 700px;
+    padding: 0 72px;
+    display: flex; flex-direction: column; justify-content: center;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--w228-55);
+    margin-bottom: 26px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;   /* 项目标题用衬线 —— 与案例页一致 */
+    font-weight: 400;
+    font-size: 76px;
+    letter-spacing: .5px;
+    line-height: 1.05;
+    color: var(--w250);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.7);
+  }
+
+  .rule { width: 96px; height: 1px; background: var(--hairline); margin: 32px 0 26px; }
+
+  h2.byline {
+    font-weight: 200;
+    font-size: 19px;
+    letter-spacing: .6px;
+    color: var(--w228-68);
+  }
+</style>
+</head>
+<body>
+
+<div class="bloom-top"></div>
+
+<div class="cover"><img id="cover" src="" alt=""></div>
+
+<div class="copy">
+  <p class="eyebrow" id="eyebrow"></p>
+  <h1 id="title"></h1>
+  <span class="rule"></span>
+  <h2 class="byline">Clark Huang &middot; Freelance design-to-code</h2>
+</div>
+
+<script>
+  var q = new URLSearchParams(location.search);
+  document.getElementById('title').textContent   = q.get('title')   || '';
+  document.getElementById('eyebrow').textContent = q.get('eyebrow') || '';
+  document.getElementById('cover').src           = q.get('cover')   || '';
+</script>
+
+</body>
+</html>

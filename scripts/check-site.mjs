@@ -1,5 +1,5 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
-import { dirname, extname, resolve } from 'node:path';
+import { dirname, extname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -40,7 +40,8 @@ const htmlFiles = files.filter((file) => extname(file) === '.html');
 
 for (const file of htmlFiles) {
   const source = await readFile(file, 'utf8');
-  const name = file.slice(ROOT.length + 1);
+  // ROOT 自带尾部分隔符，+1 会吃掉路径首字母
+  const name = file.slice(ROOT.length).replace(/^[\\/]/, '');
   const h1Count = count(source, /<h1\b/gi);
   const h2Count = count(source, /<h2\b/gi);
 
@@ -52,6 +53,32 @@ for (const file of htmlFiles) {
     if (!clean) continue;
     const path = resolve(dirname(file), clean);
     if (!await exists(path)) errors.push(`${name}: missing local target ${target}`);
+  }
+
+  // 分享卡片 —— 只检查对外发布的页面，卡片版面源文件自身除外
+  if (!name.startsWith(`scripts${sep}`)) {
+    const meta = (property) =>
+      source.match(new RegExp(`<meta (?:property|name)="${property}" content="([^"]*)"`))?.[1];
+
+    for (const required of ['og:title', 'og:description', 'og:image', 'og:url']) {
+      if (!meta(required)) errors.push(`${name}: missing ${required}`);
+    }
+
+    const image = meta('og:image');
+    if (image && !image.startsWith('https://')) {
+      errors.push(`${name}: og:image must be absolute, found ${image}`);
+    }
+    // 抓取器不会解析相对路径；漏掉这一点，分享出去就是一张空白卡
+    if (image) {
+      const local = resolve(ROOT, image.replace(/^https:\/\/[^/]+\//, ''));
+      if (!await exists(local)) errors.push(`${name}: og:image file not found — ${image}`);
+    }
+
+    const url = meta('og:url');
+    const canonical = source.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
+    if (url && canonical && url !== canonical) {
+      errors.push(`${name}: og:url and canonical disagree`);
+    }
   }
 }
 

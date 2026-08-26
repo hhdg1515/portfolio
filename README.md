@@ -26,6 +26,27 @@ npm run check    # validate before publishing
 
 The third is the unusual one. Statements that were once on the site and have since been corrected are listed in the checker by exact string. If a rewrite reintroduces one, the check fails. Accuracy about my own work is treated as a build constraint rather than a matter of memory.
 
+It also verifies every page's share card: that the Open Graph tags are present, that `og:image` is an absolute URL pointing at a file that actually exists, and that `og:url` and the canonical link agree.
+
+## Share cards
+
+Every page carries its own Open Graph card, so a link posted into LinkedIn, Slack or a message thread previews as the work rather than as a bare URL.
+
+The cards are built from the site's own design language rather than drawn separately — same near-black ground, same bloom photograph, same type scale. Two sources generate them:
+
+- `scripts/og-card.html` — the homepage card: name, positioning, and three project covers bleeding off the bottom edge
+- `scripts/og-project-card.html` — the case study card, driven by query parameters (`?title=&eyebrow=&cover=`)
+
+Both are rendered headlessly at 1200×630 and written to `assets/images/og/`. Regenerate them after changing the positioning copy or the projects shown on the homepage.
+
+**When the domain changes**, the absolute URLs in all eight pages have to change with it:
+
+```bash
+grep -rl "portfolio-hhdg1515.vercel.app" index.html projects/ \
+  | xargs sed -i "s|portfolio-hhdg1515.vercel.app|YOUR-DOMAIN|g"
+npm run check
+```
+
 ## Structure
 
 ```
